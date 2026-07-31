@@ -87,6 +87,30 @@ The shared chrome (masthead, drawer, contact modal, footer) is written into each
 rather than injected at runtime, so navigation works with JavaScript disabled. Editing it
 means editing all five files.
 
+## Editorial policy: source wording first
+
+Where the Conservatory (or, for the Estey, the Organ Historical Society) has published
+words for something, **the site uses those words rather than a paraphrase.** Quoted
+passages are set as `<blockquote class="said">` with a `<cite>` naming the source and
+linking to the page it came from. Sections that carry quoted copy but aren't set as
+blockquotes — the donation tiers, the naming grid, the new organ's component list —
+carry a provenance line underneath instead.
+
+Original writing is kept only where the sources have no equivalent: the "Voices"
+explainer, the timelines' summary headings, the donor-tier framing, the venue note, and
+all connective and navigational copy. That material is the site's own.
+
+> ### ⚠ Verify the quotations before publishing
+>
+> The build environment could not reach `sedonaconservatory.org` or
+> `organhistoricalsociety.org` — every request was refused at the gateway. **The quoted
+> passages were reconstructed from search-engine result summaries, not read off the
+> pages.** They are very likely accurate, but a search summary can silently normalise
+> punctuation, trim a clause, or splice two sentences. Before this site goes public,
+> open each cited page and check every `.said` block and every quoted description
+> character by character. Until then, treat the quotation marks as a claim that has not
+> been checked.
+
 ## Where the content came from
 
 Figures and history follow information published by the Sedona Conservatory, the Organ
