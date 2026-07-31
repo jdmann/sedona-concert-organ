@@ -15,7 +15,7 @@
                     { provider: 'vimeo', id: '123456789' }.
      ═══════════════════════════════════════════════════════════════════════ */
   var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify before launch
-  var PIPE_UP_VIDEO = { provider: '', id: '' };        // ← paste the id here
+  var PIPE_UP_VIDEO = { provider: 'vimeo', id: '345343665' };
 
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

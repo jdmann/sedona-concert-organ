@@ -31,22 +31,22 @@ assets/js/cathedral.js      # config, façades, modal, video, reveals, counters
 assets/img/README.md        # photograph sourcing manifest — read before publishing
 ```
 
-## Two things you must set before launch
+## Configuration
 
-Both live at the top of `assets/js/cathedral.js`, and both are **inert until set** —
-the page never pretends to have something it doesn't.
+Both values live at the top of `assets/js/cathedral.js`.
 
 ```js
 var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify this address
-var PIPE_UP_VIDEO = { provider: '', id: '' };        // ← 'vimeo'|'youtube' + id
+var PIPE_UP_VIDEO = { provider: 'vimeo', id: '345343665' };
 ```
 
-- **`CONTACT_EMAIL`** is a *guess* and must be verified. It's what the Contact modal
-  composes to.
-- **`PIPE_UP_VIDEO`** — the "Pipe Up" film on the Conservatory's Buy-A-Pipe page could
-  not be identified automatically (see *What couldn't be sourced* below). Until an id is
-  set, the film panel shows a disabled play control explaining what's missing rather than
-  a broken embed. Set both fields and it becomes a real click-to-load player.
+- **`CONTACT_EMAIL`** is still a *guess* and must be verified before launch. It's what
+  the Contact modal composes to.
+- **`PIPE_UP_VIDEO`** is set to the *Pipe Up* film on Vimeo. The player is click-to-load,
+  so nothing is requested from Vimeo until a visitor presses play; `support.html` also
+  carries a plain link to the video for anyone without JavaScript. Setting `provider` to
+  `'youtube'` switches the embed to `youtube-nocookie.com`. Leaving either field empty
+  disables the play control rather than rendering a broken embed.
 
 ## Photographs
 
@@ -117,9 +117,9 @@ and Wikipedia was refused at the gateway. Everything above was reconstructed fro
 results rather than read off the pages directly. Consequently:
 
 - **No photographs could be downloaded.** See `assets/img/README.md`.
-- **The "Pipe Up" video could not be identified.** Search suggests the Conservatory has a
-  film on Vimeo, but no id was recoverable. Set `PIPE_UP_VIDEO` by hand.
 - **`CONTACT_EMAIL` is unverified.**
+
+The *Pipe Up* video id was supplied by hand and is now wired up.
 - **Sources disagree on two details.** The pipe count is given as both 12,700 and 12,800
   — the conservative figure is used. The Skinner predecessor in Finney Chapel is dated
   both 1914 and 1915 — 1915 is used.
