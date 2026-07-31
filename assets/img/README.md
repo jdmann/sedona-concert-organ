@@ -18,7 +18,7 @@ and cleared for use by hand. Below is where each one lives.
 | `oberlin-console.jpg` | The console of Aeolian-Skinner Opus 230-A | [Pipe Organ Database — Opus 230-A](https://pipeorgandatabase.org/organ/22308); [OHS Aeolian-Skinner spec](https://organhistoricalsociety.org/aeolianskinner/Specs/Op00230a.html) |
 | `oberlin-finney.jpg` | Opus 230-A in Finney Chapel, Oberlin | [Pipedreams — Oberlin Finney Chapel](https://www.pipedreams.org/profile/oberlin-finney-chapel-aeolian-skinner); Oberlin College archives |
 | `new-console-render.jpg` | Design rendering of the new five-manual console | The Sedona Conservatory directly |
-| `hall-render.jpg` | The Festival Concert Hall and organ case | The Sedona Conservatory directly |
+| `organ-case-render.jpg` | The organ case — the visible pipes across the stage | The Sedona Conservatory directly |
 
 The Sedona Conservatory's own [concert organ page](https://sedonaconservatory.org/concert-organ/),
 [Buy A Pipe page](https://sedonaconservatory.org/buyapipe/) and

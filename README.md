@@ -19,7 +19,7 @@ python3 -m http.server 8000
 
 | File | What it is |
 |---|---|
-| `index.html` | Overview — the instrument, the two landmarks, tonal families, the hall |
+| `index.html` | Overview — the instrument, the two landmarks, the film, tonal families |
 | `estey.html` | The Claremont Estey, Opus 2981 (1931), with its timeline |
 | `oberlin.html` | The Oberlin Skinner, Aeolian-Skinner Opus 230-A (1955), with its timeline |
 | `new-organ.html` | The new instrument being built, with its forward timeline |
@@ -118,8 +118,6 @@ results rather than read off the pages directly. Consequently:
 
 - **No photographs could be downloaded.** See `assets/img/README.md`.
 - **`CONTACT_EMAIL` is unverified.**
-
-The *Pipe Up* video id was supplied by hand and is now wired up.
 - **Sources disagree on two details.** The pipe count is given as both 12,700 and 12,800
   — the conservative figure is used. The Skinner predecessor in Finney Chapel is dated
   both 1914 and 1915 — 1915 is used.
@@ -128,6 +126,17 @@ The *Pipe Up* video id was supplied by hand and is now wired up.
   deliberately describes tonal families common to *any* large organ rather than this
   instrument's specification; no per-rank details are invented, since the Conservatory
   publishes the stoplist separately.
+
+The *Pipe Up* video id was supplied directly and is wired up.
+
+## The venue
+
+Earlier drafts described a purpose-built Festival Concert Hall, following the
+Conservatory's published material. **That is no longer the plan** — no new building will
+be constructed for the organ; it will be housed inside an existing structure, yet to be
+announced. The "Precinct" section has been removed and every claim of a purpose-built
+hall revised. Where the venue is referred to at all, the site now says only that the home
+is in Sedona and will be announced. Update this once the building is public.
 
 **Verify every figure with the Conservatory before this goes public.** This is an
 independent tribute site and is not affiliated with the Sedona Conservatory.
