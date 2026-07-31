@@ -1,60 +1,133 @@
 # The Sedona Concert Organ
 
-A single-page site for the Sedona Conservatory's concert organ, built to feel like a
-great cathedral: soaring vertical proportions, a stained-glass rose window, gothic
-arches, gilded lettering, quarried-stone grain, and shafts of light falling through
-the nave.
+A site for the Sedona Conservatory's concert organ — built to educate about the project
+and to raise money through the Buy-A-Pipe campaign. Styled as a great cathedral: soaring
+vertical proportions, a stained-glass rose window, gothic arches, gilded lettering,
+quarried-stone grain, and shafts of light falling through the nave.
 
 Inspired by <https://sedonaconservatory.org/concert-organ/>.
 
 ## Running it
 
-No build step, no dependencies. Open `index.html`, or serve the folder:
+No build step, no dependencies. Serve the folder:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-## Structure
+## Pages
+
+| File | What it is |
+|---|---|
+| `index.html` | Overview — the instrument, the two landmarks, tonal families, the hall |
+| `estey.html` | The Claremont Estey, Opus 2981 (1931), with its timeline |
+| `oberlin.html` | The Oberlin Skinner, Aeolian-Skinner Opus 230-A (1955), with its timeline |
+| `new-organ.html` | The new instrument being built, with its forward timeline |
+| `support.html` | Buy a Pipe, donor tiers, sponsorship benefits, naming opportunities |
 
 ```
-index.html                  # the whole page
-assets/css/cathedral.css    # design system + all sections
-assets/js/cathedral.js      # façade generation, reveals, counters, drawer
+assets/css/cathedral.css    # design system + every component
+assets/js/cathedral.js      # config, façades, modal, video, reveals, counters
+assets/img/README.md        # photograph sourcing manifest — read before publishing
 ```
+
+## Two things you must set before launch
+
+Both live at the top of `assets/js/cathedral.js`, and both are **inert until set** —
+the page never pretends to have something it doesn't.
+
+```js
+var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify this address
+var PIPE_UP_VIDEO = { provider: '', id: '' };        // ← 'vimeo'|'youtube' + id
+```
+
+- **`CONTACT_EMAIL`** is a *guess* and must be verified. It's what the Contact modal
+  composes to.
+- **`PIPE_UP_VIDEO`** — the "Pipe Up" film on the Conservatory's Buy-A-Pipe page could
+  not be identified automatically (see *What couldn't be sourced* below). Until an id is
+  set, the film panel shows a disabled play control explaining what's missing rather than
+  a broken embed. Set both fields and it becomes a real click-to-load player.
+
+## Photographs
+
+**The site ships with none.** Each `<figure class="plate">` already points at its intended
+filename; until that file exists an engraved "Photograph wanted" legend shows instead.
+Drop a correctly-named file into `assets/img/` and it appears — no code change.
+
+`assets/img/README.md` lists every wanted file, where to find it, and the rights that
+need clearing first. Read it before publishing any image.
 
 ## Design notes
 
-- **Rose window** — hand-authored inline SVG. One petal and one lobe defined in
-  `<defs>`, then rotated twelve times with `<use>`, so it stays sharp at any size and
-  needs no JavaScript.
-- **Organ façades** — generated in JS in the classic mitred arrangement (tallest pipes
-  at the flanks and centre, stepping down into the flats). Decorative; the page reads
-  fine without them.
-- **Gothic arches** — the two-panel "diptych" for the historic organs uses pointed-arch
-  SVG paths filled with stained-glass gradients and leaded with dark strokes.
-- **Type** — system serif stacks only (Iowan Old Style / Palatino / Georgia), so there
-  are no webfont requests and nothing external to load.
-- **No external assets whatsoever.** No fonts, images, scripts, or CDNs. The stone
-  grain is an inline SVG `feTurbulence` filter in a data URI.
+- **Rose window** — hand-authored inline SVG. One petal and one oculus defined in
+  `<defs>`, rotated twelve times with `<use>`, so it stays sharp at any size and needs no
+  JavaScript.
+- **Organ façades** — generated in JS on a five-tower mitred profile (tallest pipes at the
+  flanks and centre, stepping down into the flats). Decorative; the page reads fine
+  without them.
+- **The console** — five stacked keyboards drawn in pure CSS: naturals divided every 12px
+  with the five sharps of each 84px octave laid over them in the correct 2–3 grouping.
+- **Video** — click-to-load. Nothing is requested from the video host until the visitor
+  presses play, so the page sets no third-party cookies on arrival.
+- **Contact modal** — native `<dialog>`, so focus trapping and Escape-to-close come from
+  the browser. With no backend, the form composes the message in the visitor's own mail
+  client and says so plainly rather than faking a send. To wire a real endpoint, replace
+  the `form[data-mailto]` submit handler.
+- **Type** — system serif stacks only (Iowan Old Style / Palatino / Georgia), so there are
+  no webfont requests.
+- **No external assets whatsoever.** No fonts, images, scripts, or CDNs. The stone grain
+  is an inline SVG `feTurbulence` filter in a data URI.
 - **Motion** — every animation is gated behind `prefers-reduced-motion`.
-- **Accessibility** — skip link, visible focus rings, labelled landmarks, ARIA-wired
-  mobile drawer with Escape-to-close, decorative SVG hidden from assistive tech.
+- **Accessibility** — skip link, visible focus rings, `aria-current` on the active nav
+  item, ARIA-wired mobile drawer, decorative SVG hidden from assistive tech, and
+  `scroll-margin-top` so anchor jumps clear the fixed masthead.
 - Also styled for print, and for narrow screens down to 320px.
 
-## About the content
+The shared chrome (masthead, drawer, contact modal, footer) is written into each page
+rather than injected at runtime, so navigation works with JavaScript disabled. Editing it
+means editing all five files.
 
-Figures and history follow information published by the Sedona Conservatory:
-235 ranks and more than 12,700 pipes, a new five-manual console, and the two source
-instruments — the Estey *Magnum Opus* 2981 (1931, Claremont/Pomona College) and the
-Aeolian-Skinner Opus 230-A (1955, Oberlin College Conservatory of Music).
+## Where the content came from
 
-Published sources disagree slightly on the pipe count (12,700 vs. 12,800); the
-conservative figure is used here.
+Figures and history follow information published by the Sedona Conservatory, the Organ
+Historical Society, the Pipe Organ Database and Pipedreams:
 
-The "Voices" section describes the tonal families common to any large organ rather
-than this instrument's specification — the Conservatory publishes the stoplist
-separately, and no per-rank details are invented here. Prose framing, the timeline
-wording, and the patronage tiers are editorial. **Verify all figures with the
-Conservatory before using this publicly.** This is an independent tribute page and is
-not affiliated with the Sedona Conservatory.
+- **The project** — c. 235 ranks, more than 12,700 pipes, a new five-manual console with
+  300 stops, an organ case spanning the full width of the stage.
+- **Buy-A-Pipe** — current goal of 2,500 pipes at $100 each; Soloists / Maestros /
+  Partners tiers; sponsor names and their pipes inscribed within the case; preferred
+  seating; reductions on SedCon logo items.
+- **Naming** — Claremont Console, Oberlin Console, Full Conservatory Console, Organ Case,
+  and the Great, Swell and Neo-Baroque divisions, plus donor-directed rights for
+  significant gifts.
+- **Estey Opus 2981** — built 1931 for Bridges Auditorium, the gift of Mr. and Mrs.
+  Appleton Bridges in memory of their daughter Mabel Shaw Bridges (d. 1907);
+  specification by Joseph W. Clokey and James B. Jamison; dedicatory recital 23 November
+  1931 by Palmer Christian; donated to the Conservatory through its curator, Harris.
+- **Aeolian-Skinner Opus 230-A** — installed in Finney Chapel 1955, incorporating pipework
+  from the earlier E. M. Skinner; displaced in 1997 by a bequest for a French-styled
+  organ; sold 1999 and moved to Goulding and Wood, Indianapolis; bought for Sedona in June
+  2014; moved west by the Organ Clearing House in November 2015.
+
+## What couldn't be sourced, and what to check
+
+The build environment had **no outbound network access to any external host** — every
+fetch of `sedonaconservatory.org`, the Organ Historical Society, the Pipe Organ Database
+and Wikipedia was refused at the gateway. Everything above was reconstructed from search
+results rather than read off the pages directly. Consequently:
+
+- **No photographs could be downloaded.** See `assets/img/README.md`.
+- **The "Pipe Up" video could not be identified.** Search suggests the Conservatory has a
+  film on Vimeo, but no id was recoverable. Set `PIPE_UP_VIDEO` by hand.
+- **`CONTACT_EMAIL` is unverified.**
+- **Sources disagree on two details.** The pipe count is given as both 12,700 and 12,800
+  — the conservative figure is used. The Skinner predecessor in Finney Chapel is dated
+  both 1914 and 1915 — 1915 is used.
+- **The prose is editorial.** Section framing, the "Voices" copy, and the narrative
+  connective tissue are written for this site, not quoted. The "Voices" section
+  deliberately describes tonal families common to *any* large organ rather than this
+  instrument's specification; no per-rank details are invented, since the Conservatory
+  publishes the stoplist separately.
+
+**Verify every figure with the Conservatory before this goes public.** This is an
+independent tribute site and is not affiliated with the Sedona Conservatory.

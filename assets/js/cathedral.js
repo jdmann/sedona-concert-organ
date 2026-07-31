@@ -5,7 +5,104 @@
 (function () {
   'use strict';
 
+  /* ══ CONFIGURATION ═══════════════════════════════════════════════════════
+     Two values the Conservatory must supply. Both are inert until set — the
+     page never pretends to have something it does not.
+
+     CONTACT_EMAIL  the address the contact modal composes to.
+     PIPE_UP_VIDEO  the "Pipe Up" film. Set `provider` to 'vimeo' or
+                    'youtube' and `id` to the numeric/alphanumeric id, e.g.
+                    { provider: 'vimeo', id: '123456789' }.
+     ═══════════════════════════════════════════════════════════════════════ */
+  var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify before launch
+  var PIPE_UP_VIDEO = { provider: '', id: '' };        // ← paste the id here
+
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── The Pipe Up film ───────────────────────────────────────────────────
+     Click-to-load: nothing is requested from the video host until the
+     visitor asks for it, so the page sets no third-party cookies on load. */
+  Array.prototype.forEach.call(document.querySelectorAll('.film'), function (film) {
+    var btn = film.querySelector('.film__btn');
+    var awaiting = film.querySelector('.film__await');
+    var ready = Boolean(PIPE_UP_VIDEO.provider && PIPE_UP_VIDEO.id);
+
+    if (!ready) {
+      film.classList.add('is-unset');
+      if (btn) { btn.setAttribute('aria-disabled', 'true'); btn.disabled = true; }
+      return;
+    }
+    if (awaiting) awaiting.remove();
+
+    btn.addEventListener('click', function () {
+      var src = PIPE_UP_VIDEO.provider === 'youtube'
+        ? 'https://www.youtube-nocookie.com/embed/' + PIPE_UP_VIDEO.id + '?autoplay=1&rel=0'
+        : 'https://player.vimeo.com/video/' + PIPE_UP_VIDEO.id + '?autoplay=1';
+
+      var frame = document.createElement('iframe');
+      frame.src = src;
+      frame.title = film.dataset.title || 'Pipe Up';
+      frame.allow = 'autoplay; fullscreen; picture-in-picture';
+      frame.setAttribute('allowfullscreen', '');
+      film.replaceChildren(frame);
+    });
+  });
+
+  /* ── Contact modal ──────────────────────────────────────────────────────
+     Native <dialog>, so focus trapping and Escape come from the browser. */
+  var dialog = document.getElementById('contact-modal');
+  if (dialog) {
+    var openers = document.querySelectorAll('[data-opens-contact]');
+    var opener = null;
+
+    Array.prototype.forEach.call(openers, function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        opener = link;
+        var drawerEl = document.getElementById('nav-drawer');
+        if (drawerEl && !drawerEl.hidden) drawerEl.hidden = true;
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else window.location.href = 'mailto:' + CONTACT_EMAIL;
+      });
+    });
+
+    dialog.addEventListener('close', function () {
+      if (opener) { opener.focus(); opener = null; }
+    });
+
+    var closer = dialog.querySelector('.modal__close');
+    if (closer) closer.addEventListener('click', function () { dialog.close(); });
+
+    /* Click on the backdrop (outside the panel) dismisses */
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+
+    /* No backend on a static site — compose the message in the visitor's own
+       mail client rather than pretending to send it. */
+    var form = dialog.querySelector('form[data-mailto]');
+    if (form) {
+      var target = dialog.querySelector('[data-contact-email]');
+      if (target) { target.textContent = CONTACT_EMAIL; target.href = 'mailto:' + CONTACT_EMAIL; }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var get = function (n) {
+          var el = form.elements[n];
+          return el && el.value ? el.value.trim() : '';
+        };
+        var subject = get('subject') || 'Sedona Concert Organ enquiry';
+        var body = 'Name: ' + get('name') + '\n'
+                 + 'Email: ' + get('email') + '\n\n'
+                 + get('message') + '\n';
+
+        window.location.href = 'mailto:' + CONTACT_EMAIL
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+        dialog.close();
+      });
+    }
+  }
 
   /* ── Organ façades ──────────────────────────────────────────────────────
      Pipes are laid out in the classic mitred arrangement: tallest at the
@@ -59,6 +156,22 @@
       if (pipe) pipe.classList.toggle('is-lit');
     });
   }
+
+  /* ── Photograph plates ──────────────────────────────────────────────────
+     Each plate ships with the <img> already pointing at its intended file.
+     Until that file exists the engraved legend shows instead, so dropping a
+     photograph into assets/img/ is the only step needed to publish it. */
+  Array.prototype.forEach.call(document.querySelectorAll('.plate'), function (plate) {
+    var img = plate.querySelector('.plate__img');
+    if (!img) { plate.classList.add('is-empty'); return; }
+
+    function empty() { plate.classList.add('is-empty'); }
+    if (img.complete) {
+      if (!img.naturalWidth) empty();
+    } else {
+      img.addEventListener('error', empty);
+    }
+  });
 
   /* ── Masthead: settles into stone once you leave the west front ───────── */
   var masthead = document.getElementById('masthead');
