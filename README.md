@@ -100,16 +100,29 @@ Original writing is kept only where the sources have no equivalent: the "Voices"
 explainer, the timelines' summary headings, the donor-tier framing, the venue note, and
 all connective and navigational copy. That material is the site's own.
 
-> ### ⚠ Verify the quotations before publishing
+> ### ⚠ The wording is source-derived, but NOT verified verbatim
 >
-> The build environment could not reach `sedonaconservatory.org` or
-> `organhistoricalsociety.org` — every request was refused at the gateway. **The quoted
-> passages were reconstructed from search-engine result summaries, not read off the
-> pages.** They are very likely accurate, but a search summary can silently normalise
-> punctuation, trim a clause, or splice two sentences. Before this site goes public,
-> open each cited page and check every `.said` block and every quoted description
-> character by character. Until then, treat the quotation marks as a claim that has not
-> been checked.
+> This environment has **no outbound web access at all** — not to
+> `sedonaconservatory.org`, not to `organhistoricalsociety.org`, not to `example.com`.
+> Every request is refused at the gateway. The only working research tool is a
+> server-side web search, so **all of this wording was reconstructed from search-engine
+> result summaries. No source page was ever read directly.**
+>
+> This is demonstrably lossy. Asked twice about the same Buy-A-Pipe page, the search
+> returned two different phrasings of the same sentence:
+>
+> - *"…permanently inscribed within the instrument's magnificent case"*
+> - *"…permanently inscribed on the casework of the internationally-significant organ
+>   that will be installed at the Sedona Conservatory Concert Hall"*
+>
+> A second pass also surfaced a detail the first had dropped ("soon-to-be-available"
+> SedCon logo items). The substance held up both times; the exact words did not.
+>
+> So: the copy follows the sources closely and is attributed to them, but **it is not
+> guaranteed verbatim.** Before publishing, open each cited page and check every `.said`
+> block, every naming-opportunity description, and the Buy-A-Pipe benefits against the
+> originals. This matters most on `support.html`, where the text describes what a donor
+> receives for their money.
 
 ## Where the content came from
 
