@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Sedona Concert Organ — Sedona Conservatory</title>
+<meta name="description" content="235 ranks. More than 12,700 pipes. Two landmark American organs reborn as one instrument beneath the red rocks — the largest concert hall pipe organ in the world.">
+<meta name="theme-color" content="#0b0a0d">
+<link rel="preconnect" href="">
+<link rel="stylesheet" href="assets/css/cathedral.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0a0d'/%3E%3Cg fill='%23d9b45a'%3E%3Crect x='6' y='10' width='3' height='16' rx='1.5'/%3E%3Crect x='11.5' y='6' width='3' height='20' rx='1.5'/%3E%3Crect x='17' y='3' width='3' height='23' rx='1.5'/%3E%3Crect x='22.5' y='8' width='3' height='18' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="skip-link" href="#nave">Skip to content</a>
+
+<!-- ══════════════════════════════════ NAVE VAULT / NAV ══════════════════════════════════ -->
+<header class="masthead" id="masthead">
+  <div class="masthead__inner">
+    <a class="sigil" href="#top" aria-label="Sedona Conservatory — home">
+      <svg class="sigil__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path class="sigil__arch" d="M20 3 C31 12, 34 20, 34 27 L34 37 L6 37 L6 27 C6 20, 9 12, 20 3 Z"/>
+        <g class="sigil__pipes">
+          <rect x="12" y="20" width="3" height="13" rx="1.5"/>
+          <rect x="18.5" y="14" width="3" height="19" rx="1.5"/>
+          <rect x="25" y="18" width="3" height="15" rx="1.5"/>
+        </g>
+      </svg>
+      <span class="sigil__word">
+        <span class="sigil__name">Sedona Conservatory</span>
+        <span class="sigil__sub">The Concert Organ</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="#instrument">The Instrument</a></li>
+        <li><a href="#organs">Two Landmarks</a></li>
+        <li><a href="#voices">Voices</a></li>
+        <li><a href="#chronicle">Chronicle</a></li>
+        <li><a href="#hall">The Hall</a></li>
+      </ul>
+      <a class="btn btn--gild nav__cta" href="#patronage">Buy a Pipe</a>
+    </nav>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="drawer" id="nav-drawer" hidden>
+    <ul class="drawer__list">
+      <li><a href="#instrument">The Instrument</a></li>
+      <li><a href="#organs">Two Landmarks</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#chronicle">Chronicle</a></li>
+      <li><a href="#hall">The Hall</a></li>
+      <li><a href="#patronage">Buy a Pipe</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════ WEST FRONT / HERO ══════════════════════════════════ -->
+<section class="westfront" id="top">
+  <div class="westfront__sky" aria-hidden="true"></div>
+  <div class="shafts" aria-hidden="true">
+    <span class="shaft shaft--1"></span>
+    <span class="shaft shaft--2"></span>
+    <span class="shaft shaft--3"></span>
+    <span class="shaft shaft--4"></span>
+  </div>
+
+  <div class="westfront__inner">
+
+  <!-- Rose window -->
+  <div class="rose-holder" data-parallax="0.06" aria-hidden="true">
+    <svg class="rose" viewBox="0 0 400 400" role="presentation" focusable="false">
+      <defs>
+        <radialGradient id="roseGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#ffe9b0" stop-opacity=".55"/>
+          <stop offset="45%" stop-color="#d9b45a" stop-opacity=".18"/>
+          <stop offset="100%" stop-color="#d9b45a" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="tracery" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6f6455"/>
+          <stop offset="100%" stop-color="#2b2620"/>
+        </linearGradient>
+        <path id="petal" d="M200 34 C228 72, 237 99, 237 122 A37 37 0 1 1 163 122 C163 99, 172 72, 200 34 Z"/>
+        <circle id="lobe" cx="200" cy="27" r="10.5"/>
+        <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <circle cx="200" cy="200" r="196" fill="url(#roseGlow)"/>
+      <circle cx="200" cy="200" r="190" fill="none" stroke="url(#tracery)" stroke-width="9"/>
+      <circle cx="200" cy="200" r="176" fill="none" stroke="#3a342b" stroke-width="3"/>
+
+      <!-- 12 outer lobes -->
+      <g class="rose__lobes" fill="#e8c766" fill-opacity=".5" stroke="#4c4438" stroke-width="2.5">
+        <use href="#lobe" transform="rotate(15 200 200)"/>
+        <use href="#lobe" transform="rotate(45 200 200)"/>
+        <use href="#lobe" transform="rotate(75 200 200)"/>
+        <use href="#lobe" transform="rotate(105 200 200)"/>
+        <use href="#lobe" transform="rotate(135 200 200)"/>
+        <use href="#lobe" transform="rotate(165 200 200)"/>
+        <use href="#lobe" transform="rotate(195 200 200)"/>
+        <use href="#lobe" transform="rotate(225 200 200)"/>
+        <use href="#lobe" transform="rotate(255 200 200)"/>
+        <use href="#lobe" transform="rotate(285 200 200)"/>
+        <use href="#lobe" transform="rotate(315 200 200)"/>
+        <use href="#lobe" transform="rotate(345 200 200)"/>
+      </g>
+
+      <!-- 12 glass petals -->
+      <g class="rose__petals" stroke="#241f1a" stroke-width="4" filter="url(#softGlow)">
+        <use href="#petal" fill="#2a4b8d" transform="rotate(0 200 200)"/>
+        <use href="#petal" fill="#8c1f2f" transform="rotate(30 200 200)"/>
+        <use href="#petal" fill="#b4832c" transform="rotate(60 200 200)"/>
+        <use href="#petal" fill="#1d5b4a" transform="rotate(90 200 200)"/>
+        <use href="#petal" fill="#4a2d6b" transform="rotate(120 200 200)"/>
+        <use href="#petal" fill="#a4462d" transform="rotate(150 200 200)"/>
+        <use href="#petal" fill="#2a4b8d" transform="rotate(180 200 200)"/>
+        <use href="#petal" fill="#8c1f2f" transform="rotate(210 200 200)"/>
+        <use href="#petal" fill="#b4832c" transform="rotate(240 200 200)"/>
+        <use href="#petal" fill="#1d5b4a" transform="rotate(270 200 200)"/>
+        <use href="#petal" fill="#4a2d6b" transform="rotate(300 200 200)"/>
+        <use href="#petal" fill="#a4462d" transform="rotate(330 200 200)"/>
+      </g>
+
+      <!-- Radiating mullions -->
+      <g class="rose__mullions" stroke="#584e40" stroke-width="3" stroke-linecap="round">
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(15 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(45 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(75 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(105 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(135 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(165 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(195 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(225 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(255 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(285 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(315 200 200)"/>
+        <line x1="200" y1="200" x2="200" y2="26" transform="rotate(345 200 200)"/>
+      </g>
+
+      <!-- Central medallion -->
+      <circle cx="200" cy="200" r="62" fill="#0f0d12" stroke="#584e40" stroke-width="4"/>
+      <g class="rose__heart" fill="#e8c766" opacity=".92">
+        <circle cx="200" cy="200" r="15"/>
+        <circle cx="200" cy="164" r="12" fill="#8c1f2f"/>
+        <circle cx="231" cy="182" r="12" fill="#2a4b8d"/>
+        <circle cx="231" cy="218" r="12" fill="#1d5b4a"/>
+        <circle cx="200" cy="236" r="12" fill="#a4462d"/>
+        <circle cx="169" cy="218" r="12" fill="#4a2d6b"/>
+        <circle cx="169" cy="182" r="12" fill="#b4832c"/>
+      </g>
+      <circle cx="200" cy="200" r="62" fill="none" stroke="#241f1a" stroke-width="2"/>
+    </svg>
+  </div>
+
+    <p class="kicker kicker--center">Sedona, Arizona &nbsp;·&nbsp; The Festival Concert Hall</p>
+    <h1 class="hero-title">
+      <span class="hero-title__line">The Sedona</span>
+      <span class="hero-title__line hero-title__line--gild">Concert Organ</span>
+    </h1>
+    <p class="hero-lede">
+      Two landmark American organs, silent for a generation, are being raised again as
+      a single instrument beneath the red rocks — <em>235&nbsp;ranks</em>, more than
+      <em>12,700&nbsp;pipes</em>, and one console to command them all.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn--gild" href="#instrument">Enter the Nave</a>
+      <a class="btn btn--ghost" href="#patronage">Buy a Pipe</a>
+    </div>
+  </div>
+
+  <div class="facade" data-pipes="hero" aria-hidden="true"></div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<main id="nave">
+
+<!-- ══════════════════════════════════ INVOCATION ══════════════════════════════════ -->
+<section class="section section--invocation" id="instrument">
+  <div class="wrap wrap--narrow">
+    <p class="kicker reveal">I. &nbsp; The Instrument</p>
+    <h2 class="display reveal">A cathedral voice<br>in canyon country</h2>
+
+    <div class="illuminated reveal">
+      <p>
+        The Sedona Conservatory Concert Hall Organ will total some <strong>235 sets of
+        pipes</strong> — ranks — comprising more than <strong>12,700 individual pipes</strong>,
+        making it by far the largest concert hall organ in the world. It is not an
+        instrument assembled from a catalogue. It is an instrument <em>gathered</em>:
+        two of the great American organs of the twentieth century, located, secured, and
+        now being brought back to speech.
+      </p>
+    </div>
+
+    <p class="body-lg reveal">
+      Where a cathedral organ answers stone, this one will answer sandstone. The Festival
+      Concert Hall rises where the light comes off the rocks red at evening, and the
+      instrument inside is scaled to that horizon — a full symphonic palette from the
+      merest breath of a string to a full-organ chord that you feel in the floor before
+      you hear it.
+    </p>
+  </div>
+
+  <!-- Numbers -->
+  <div class="wrap">
+    <ul class="numbers reveal-group">
+      <li class="numeral reveal">
+        <span class="numeral__value" data-count="235">235</span>
+        <span class="numeral__label">Ranks of pipes</span>
+      </li>
+      <li class="numeral reveal">
+        <span class="numeral__value" data-count="12700" data-suffix="+">12,700+</span>
+        <span class="numeral__label">Individual pipes</span>
+      </li>
+      <li class="numeral reveal">
+        <span class="numeral__value" data-count="5">5</span>
+        <span class="numeral__label">Manuals at the new console</span>
+      </li>
+      <li class="numeral reveal">
+        <span class="numeral__value" data-count="2">2</span>
+        <span class="numeral__label">Landmark organs united</span>
+      </li>
+    </ul>
+    <p class="numbers__foot reveal">
+      Largest concert hall pipe organ in the world &nbsp;·&nbsp; a three-to-five-year
+      organbuilding project, now under way
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ THE DIPTYCH ══════════════════════════════════ -->
+<section class="section section--dark" id="organs">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="kicker">II. &nbsp; Two Landmarks</p>
+      <h2 class="display">The organs that<br>came before</h2>
+      <p class="section-head__lede">
+        Acquisition of the Conservatory's source instruments is complete. Both historic
+        organs are being reestablished so that each may be played individually from its own
+        magnificent original console — and both together from a new one.
+      </p>
+    </header>
+
+    <div class="diptych reveal-group">
+
+      <article class="panel reveal">
+        <div class="panel__arch">
+          <svg class="arch-svg" viewBox="0 0 300 420" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="glassA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"  stop-color="#c98a2e"/>
+                <stop offset="42%" stop-color="#8c1f2f"/>
+                <stop offset="100%" stop-color="#241428"/>
+              </linearGradient>
+            </defs>
+            <path class="arch-svg__glass" fill="url(#glassA)"
+              d="M150 14 C232 84, 262 152, 262 214 L262 406 L38 406 L38 214 C38 152, 68 84, 150 14 Z"/>
+            <g class="arch-svg__lead" fill="none" stroke="#0b0a0d" stroke-width="5">
+              <path d="M150 14 C232 84, 262 152, 262 214 L262 406 L38 406 L38 214 C38 152, 68 84, 150 14 Z"/>
+              <line x1="150" y1="20" x2="150" y2="406"/>
+              <line x1="38" y1="214" x2="262" y2="214"/>
+              <line x1="38" y1="300" x2="262" y2="300"/>
+              <line x1="94" y1="214" x2="94" y2="406"/>
+              <line x1="206" y1="214" x2="206" y2="406"/>
+            </g>
+          </svg>
+        </div>
+        <div class="panel__body">
+          <p class="panel__era">1931</p>
+          <h3 class="panel__title">Estey Magnum<br>Opus 2981</h3>
+          <p class="panel__from">Claremont &nbsp;·&nbsp; Pomona College</p>
+          <p class="panel__text">
+            Estey's <em>Magnum Opus</em> — the Brattleboro firm's grandest surviving statement,
+            built in 1931 for Claremont and Pomona College. Vast in scale, orchestral in
+            ambition, and voiced in an era when an American organ was expected to hold a
+            hall by itself.
+          </p>
+          <p class="panel__note">Reestablished to play from its original console.</p>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__arch">
+          <svg class="arch-svg" viewBox="0 0 300 420" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="glassB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"  stop-color="#7fb2d8"/>
+                <stop offset="42%" stop-color="#2a4b8d"/>
+                <stop offset="100%" stop-color="#12203c"/>
+              </linearGradient>
+            </defs>
+            <path class="arch-svg__glass" fill="url(#glassB)"
+              d="M150 14 C232 84, 262 152, 262 214 L262 406 L38 406 L38 214 C38 152, 68 84, 150 14 Z"/>
+            <g class="arch-svg__lead" fill="none" stroke="#0b0a0d" stroke-width="5">
+              <path d="M150 14 C232 84, 262 152, 262 214 L262 406 L38 406 L38 214 C38 152, 68 84, 150 14 Z"/>
+              <line x1="150" y1="20" x2="150" y2="406"/>
+              <line x1="38" y1="214" x2="262" y2="214"/>
+              <line x1="38" y1="300" x2="262" y2="300"/>
+              <line x1="94" y1="214" x2="94" y2="406"/>
+              <line x1="206" y1="214" x2="206" y2="406"/>
+            </g>
+          </svg>
+        </div>
+        <div class="panel__body">
+          <p class="panel__era">1955</p>
+          <h3 class="panel__title">Aeolian-Skinner<br>Opus 230-A</h3>
+          <p class="panel__from">Oberlin College Conservatory of Music</p>
+          <p class="panel__text">
+            From the house of G. Donald Harrison, at the height of the American Classic
+            ideal: clarity over weight, choruses that build like architecture, reeds that
+            cut without shouting. For decades it taught organists at one of the country's
+            great conservatories.
+          </p>
+          <p class="panel__note">Reestablished to play from its original console.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Console -->
+    <div class="console reveal">
+      <div class="console__rule" aria-hidden="true"></div>
+      <div class="console__text">
+        <p class="kicker">And one console to bind them</p>
+        <h3 class="display display--sm">Five keyboards.<br>One instrument.</h3>
+        <p>
+          A new <strong>five-manual console</strong> is being designed to play both historic
+          organs as one cohesive instrument — the Estey and the Aeolian-Skinner answering a
+          single pair of hands across the width of the hall. Two centuries of American
+          organbuilding, on one bench.
+        </p>
+      </div>
+      <div class="console__manuals" aria-hidden="true">
+        <div class="manual"><span class="manual__label">V</span><div class="keys"></div></div>
+        <div class="manual"><span class="manual__label">IV</span><div class="keys"></div></div>
+        <div class="manual"><span class="manual__label">III</span><div class="keys"></div></div>
+        <div class="manual"><span class="manual__label">II</span><div class="keys"></div></div>
+        <div class="manual"><span class="manual__label">I</span><div class="keys"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ VOICES ══════════════════════════════════ -->
+<section class="section" id="voices">
+  <div class="wrap">
+    <header class="section-head section-head--center reveal">
+      <p class="kicker">III. &nbsp; Voices</p>
+      <h2 class="display">The families<br>of the organ</h2>
+      <p class="section-head__lede">
+        A rank is a single row of pipes — one timbre, one pipe per note. Two hundred
+        thirty-five of them, sorted into the four families every great organ is built
+        upon, plus the percussions that make a hall glitter.
+      </p>
+    </header>
+
+    <div class="voices reveal-group">
+      <article class="voice reveal" data-hue="gild">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g><rect x="9" y="16" width="6" height="26" rx="3"/><rect x="21" y="8" width="6" height="34" rx="3"/><rect x="33" y="20" width="6" height="22" rx="3"/></g></svg>
+        </span>
+        <h3 class="voice__name">Principals</h3>
+        <p class="voice__latin">Diapason</p>
+        <p class="voice__text">
+          The organ's own voice, belonging to no other instrument. Stacked in a chorus from
+          16′ to mixture, principals are what makes a room feel like a cathedral.
+        </p>
+      </article>
+
+      <article class="voice reveal" data-hue="emerald">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g><path d="M14 40V14a10 10 0 0 1 20 0v26" fill="none" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="24" r="3.5" stroke="none"/></g></svg>
+        </span>
+        <h3 class="voice__name">Flutes</h3>
+        <p class="voice__latin">Flauto</p>
+        <p class="voice__text">
+          Open, stopped, harmonic, wooden. The colours that carry a melody over an
+          accompaniment — and, at 32′, the pedal notes you feel rather than hear.
+        </p>
+      </article>
+
+      <article class="voice reveal" data-hue="lapis">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke-width="3" stroke-linecap="round"><path d="M8 30c6-12 10 12 16 0s10 12 16 0"/><path d="M8 20c6-12 10 12 16 0s10 12 16 0" opacity=".5"/></g></svg>
+        </span>
+        <h3 class="voice__name">Strings</h3>
+        <p class="voice__latin">Viole · Céleste</p>
+        <p class="voice__text">
+          Narrow-scaled and keen, drawn in pairs slightly out of tune with one another so
+          the sound shimmers. The softest thing a great organ can do, and often the most
+          moving.
+        </p>
+      </article>
+
+      <article class="voice reveal" data-hue="ruby">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g><path d="M24 6l11 34H13z" stroke-width="4" fill="none" stroke-linejoin="round"/><rect x="19" y="26" width="10" height="4" rx="2" stroke="none"/></g></svg>
+        </span>
+        <h3 class="voice__name">Reeds</h3>
+        <p class="voice__latin">Trompette · Tuba</p>
+        <p class="voice__text">
+          Brass of the organ. From the plaintive oboe to a Tuba on heavy wind that will
+          ride over full organ and never be covered — the crown of the ensemble.
+        </p>
+      </article>
+
+      <article class="voice reveal" data-hue="amethyst">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 34c0-11 2-20 11-20s11 9 11 20z"/><path d="M9 34h30"/><circle cx="24" cy="39" r="3" stroke="none" fill="currentColor"/></g></svg>
+        </span>
+        <h3 class="voice__name">Percussions</h3>
+        <p class="voice__latin">Chimes · Harp · Celesta</p>
+        <p class="voice__text">
+          Struck voices inherited from the great American builders — the bells and
+          glitter that turn an organ into an orchestra.
+        </p>
+      </article>
+
+      <article class="voice reveal" data-hue="rock">
+        <span class="voice__glyph" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false"><g fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 38l10-16 7 10 6-12 13 18z"/><circle cx="34" cy="12" r="4"/></g></svg>
+        </span>
+        <h3 class="voice__name">The Room</h3>
+        <p class="voice__latin">Sedona</p>
+        <p class="voice__text">
+          The final stop on any organ is the hall it stands in. This one is being built
+          for the instrument — not the other way round.
+        </p>
+      </article>
+    </div>
+
+    <p class="fineprint reveal">
+      The complete stoplist is published by the Conservatory as the instrument's
+      specification is finalised.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ CHRONICLE ══════════════════════════════════ -->
+<section class="section section--dark section--chronicle" id="chronicle">
+  <div class="wrap wrap--narrow">
+    <header class="section-head reveal">
+      <p class="kicker">IV. &nbsp; Chronicle</p>
+      <h2 class="display">Ninety years,<br>one instrument</h2>
+    </header>
+
+    <ol class="chronicle reveal-group">
+      <li class="epoch reveal">
+        <span class="epoch__year">1931</span>
+        <div class="epoch__body">
+          <h3>Estey builds its Magnum Opus</h3>
+          <p>Opus 2981 leaves Brattleboro, Vermont for Claremont and Pomona College.</p>
+        </div>
+      </li>
+      <li class="epoch reveal">
+        <span class="epoch__year">1955</span>
+        <div class="epoch__body">
+          <h3>Aeolian-Skinner Opus 230-A</h3>
+          <p>Installed at the Oberlin College Conservatory of Music, in the full flower of the American Classic school.</p>
+        </div>
+      </li>
+      <li class="epoch reveal">
+        <span class="epoch__year">Today</span>
+        <div class="epoch__body">
+          <h3>Acquisition complete</h3>
+          <p>Both landmark organs are located and secured by the Sedona Conservatory — beginning the organbuilding project in earnest.</p>
+        </div>
+      </li>
+      <li class="epoch reveal">
+        <span class="epoch__year">3–5 yrs</span>
+        <div class="epoch__body">
+          <h3>The building of it</h3>
+          <p>Restoration, re-leathering, revoicing, and the design and construction of the new five-manual console.</p>
+        </div>
+      </li>
+      <li class="epoch reveal epoch--future">
+        <span class="epoch__year">Then</span>
+        <div class="epoch__body">
+          <h3>First sound in the hall</h3>
+          <p>235 ranks speak together for the first time, in the Festival Concert Hall.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ THE HALL ══════════════════════════════════ -->
+<section class="section" id="hall">
+  <div class="wrap">
+    <header class="section-head section-head--center reveal">
+      <p class="kicker">V. &nbsp; The Precinct</p>
+      <h2 class="display">The Festival<br>Concert Hall</h2>
+      <p class="section-head__lede">
+        A campus built around a single instrument, in an environment unmatched anywhere
+        on earth.
+      </p>
+    </header>
+
+    <div class="precinct reveal-group">
+      <div class="cell cell--wide reveal">
+        <h3>The world's largest concert hall pipe organ</h3>
+        <p>The Hall is designed from the inside out — around the acoustic the organ needs.</p>
+      </div>
+      <div class="cell reveal"><h3>Artist &amp; student housing</h3><p>Residence for resident and guest artists and for students in study.</p></div>
+      <div class="cell reveal"><h3>Festival &amp; picnic grounds</h3><p>Open ground for the summer festival, under the rocks.</p></div>
+      <div class="cell reveal"><h3>Two parks</h3><p>Public green, kept open to the town.</p></div>
+      <div class="cell reveal"><h3>Sculpture garden</h3><p>Works sited along the walk to the Hall.</p></div>
+      <div class="cell reveal"><h3>Events plaza</h3><p>A gathering forecourt before the west doors.</p></div>
+      <div class="cell reveal"><h3>Parking, above &amp; below</h3><p>Kept largely underground, to leave the horizon alone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ PATRONAGE ══════════════════════════════════ -->
+<section class="section section--patronage" id="patronage">
+  <div class="shafts shafts--warm" aria-hidden="true">
+    <span class="shaft shaft--1"></span>
+    <span class="shaft shaft--3"></span>
+  </div>
+
+  <div class="wrap wrap--narrow">
+    <header class="section-head section-head--center reveal">
+      <p class="kicker kicker--center">VI. &nbsp; Patronage</p>
+      <h2 class="display">Buy a pipe.<br>Create musical history.</h2>
+      <p class="section-head__lede">
+        Cathedrals were never built by one hand. Every one of the more than twelve
+        thousand pipes in this instrument can carry a name — yours, or one you wish to
+        keep sounding.
+      </p>
+    </header>
+
+    <div class="facade facade--interactive reveal" data-pipes="patronage"
+         role="img" aria-label="Illustration of an organ façade; each pipe represents a sponsorship.">
+    </div>
+    <p class="facade__hint reveal" aria-hidden="true">Hover a pipe</p>
+
+    <div class="tiers reveal-group">
+      <article class="tier reveal">
+        <h3 class="tier__name">A Pipe</h3>
+        <p class="tier__text">Sponsor a single pipe among the twelve thousand — the smallest voice in the chorus, and no less necessary for it.</p>
+      </article>
+      <article class="tier reveal tier--feature">
+        <h3 class="tier__name">A Rank</h3>
+        <p class="tier__text">Sixty-one pipes of one colour — a whole voice of the instrument, named in the stoplist for as long as it speaks.</p>
+      </article>
+      <article class="tier reveal">
+        <h3 class="tier__name">A Division</h3>
+        <p class="tier__text">An entire department of the organ, and a place in the founding record of the Hall.</p>
+      </article>
+    </div>
+
+    <div class="callout reveal">
+      <p>
+        Donation opportunities, naming levels, and the current stoplist are maintained by
+        the Conservatory.
+      </p>
+      <div class="callout__actions">
+        <a class="btn btn--gild" href="https://sedonaconservatory.org/buyapipe/" rel="noopener">Buy a Pipe</a>
+        <a class="btn btn--ghost" href="https://sedonaconservatory.org/concert-organ-donation-opportunities/" rel="noopener">Donation Opportunities</a>
+        <a class="btn btn--ghost" href="https://sedonaconservatory.org/sedona-concert-organ-stoplist/" rel="noopener">The Stoplist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ COLOPHON ══════════════════════════════════ -->
+<section class="colophon">
+  <div class="wrap wrap--narrow">
+    <blockquote class="benediction reveal">
+      <p>“The organ is the grandest, the most daring, the most magnificent of all instruments invented by human genius. It is a whole orchestra in itself.”</p>
+      <cite>Honoré de Balzac</cite>
+    </blockquote>
+  </div>
+</section>
+
+</main>
+
+<footer class="crypt">
+  <div class="wrap">
+    <div class="crypt__grid">
+      <div class="crypt__brand">
+        <svg class="sigil__mark sigil__mark--lg" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path class="sigil__arch" d="M20 3 C31 12, 34 20, 34 27 L34 37 L6 37 L6 27 C6 20, 9 12, 20 3 Z"/>
+          <g class="sigil__pipes">
+            <rect x="12" y="20" width="3" height="13" rx="1.5"/>
+            <rect x="18.5" y="14" width="3" height="19" rx="1.5"/>
+            <rect x="25" y="18" width="3" height="15" rx="1.5"/>
+          </g>
+        </svg>
+        <p class="crypt__name">Sedona Conservatory</p>
+        <p class="crypt__tag">Extraordinary opportunities, in an environment unmatched anywhere on earth.</p>
+      </div>
+
+      <nav class="crypt__nav" aria-label="Footer">
+        <h4>The Organ</h4>
+        <ul>
+          <li><a href="#instrument">The Instrument</a></li>
+          <li><a href="#organs">Two Landmarks</a></li>
+          <li><a href="#voices">Voices</a></li>
+          <li><a href="#chronicle">Chronicle</a></li>
+        </ul>
+      </nav>
+
+      <nav class="crypt__nav" aria-label="Support">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://sedonaconservatory.org/buyapipe/" rel="noopener">Buy a Pipe</a></li>
+          <li><a href="https://sedonaconservatory.org/concert-organ-donation-opportunities/" rel="noopener">Donation Opportunities</a></li>
+          <li><a href="https://sedonaconservatory.org/sedona-concert-organ-stoplist/" rel="noopener">Stoplist</a></li>
+          <li><a href="https://sedonaconservatory.org/" rel="noopener">Conservatory</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="crypt__fine">
+      Sedona, Arizona &nbsp;·&nbsp; The Festival Concert Hall
+      <span class="crypt__sep">—</span>
+      An independent tribute page. Figures and history follow information published by the
+      Sedona Conservatory; confirm all details with the Conservatory directly.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/cathedral.js" defer></script>
+</body>
+</html>
