@@ -294,11 +294,14 @@ body::after {
    WEST FRONT (hero)
    ═══════════════════════════════════════════════════════════════════════════ */
 .westfront {
+  /* Shared by the façade and by the content's bottom padding, so the buttons
+     always clear the tallest pipe instead of overlapping it. */
+  --facade-h: clamp(100px, 15vh, 190px);
   position: relative;
   min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: clamp(6rem, 12vh, 8rem) var(--gutter) 0;
+  padding: clamp(5rem, 10vh, 7rem) var(--gutter) 0;
   overflow: hidden;
   isolation: isolate;
   background:
@@ -362,8 +365,10 @@ body::after {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 60ch;
-  padding-bottom: clamp(5rem, 15vh, 9rem);
+  /* wide enough that the kicker sets on one line on desktop; the lede
+     keeps its own narrower measure */
+  max-width: min(100%, 48rem);
+  padding-bottom: calc(var(--facade-h) + clamp(1.25rem, 3vh, 2.5rem));
 }
 .westfront .kicker { margin-bottom: 1.1rem; letter-spacing: .3em; }
 
@@ -419,7 +424,7 @@ body::after {
 .facade {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: clamp(120px, 20vh, 230px);
+  height: var(--facade-h, clamp(100px, 15vh, 190px));
   display: flex;
   align-items: flex-end;
   justify-content: center;
