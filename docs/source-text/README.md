@@ -1,8 +1,8 @@
 # Source text
 
-Plain-text extractions of the Sedona Conservatory's own pages, taken from HTML
-exports supplied by the site owner on 2026-08-01. These are the authority for
-every quoted passage on this site — check against them before changing copy.
+Plain-text copies of the live Sedona Conservatory pages, extracted from HTML
+exports on 2026-08-01. Reference for the wording used across this site — check
+against them before changing copy, and refresh them if the live pages change.
 
 | File | Page |
 |---|---|
