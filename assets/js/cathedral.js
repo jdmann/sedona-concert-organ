@@ -9,12 +9,13 @@
      Two values the Conservatory must supply. Both are inert until set — the
      page never pretends to have something it does not.
 
-     CONTACT_EMAIL  the address the contact modal composes to.
+     CONTACT_EMAIL  the address the contact modal composes to. Confirmed against
+                    the Conservatory's Buy-A-Pipe and donation pages.
      PIPE_UP_VIDEO  the "Pipe Up" film. Set `provider` to 'vimeo' or
                     'youtube' and `id` to the numeric/alphanumeric id, e.g.
                     { provider: 'vimeo', id: '123456789' }.
      ═══════════════════════════════════════════════════════════════════════ */
-  var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify before launch
+  var CONTACT_EMAIL = 'info@SedonaConservatory.org';   // confirmed from source pages
   var PIPE_UP_VIDEO = { provider: 'vimeo', id: '345343665' };
 
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

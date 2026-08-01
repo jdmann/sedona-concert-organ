@@ -1565,3 +1565,92 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
 
 /* Same voice, inside a centred section head */
 .section-head--center .said { margin-inline: auto; max-width: 60ch; text-align: left; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DONOR LEVELS — the Conservatory's published ladder of named pipe sets
+   ═══════════════════════════════════════════════════════════════════════════ */
+.levels { display: grid; gap: 1px; background: rgba(217,180,90,.15);
+          border: 1px solid rgba(217,180,90,.2); }
+.level { background: var(--stone-deep); }
+.level > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 2.5vw, 1.9rem) clamp(1.25rem, 3vw, 2.25rem);
+  cursor: pointer;
+  list-style: none;
+  transition: background .4s var(--ease);
+}
+.level > summary::-webkit-details-marker { display: none; }
+.level > summary:hover { background: var(--stone); }
+.level__amount {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 1.1rem + 1.1vw, 2rem);
+  line-height: 1;
+  background: linear-gradient(170deg, var(--gild-bright), var(--gild) 50%, #9d7c33);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.level__count {
+  font-size: .66rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mist-dim);
+  white-space: nowrap;
+}
+.level__count::after { content: " ▾"; color: var(--gild); }
+.level[open] .level__count::after { content: " ▴"; }
+.level__body { padding: 0 clamp(1.25rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem); }
+.level__note { color: var(--mist); font-size: .92rem; margin-bottom: 1.5rem; }
+
+/* Borders on the cells rather than a gap, so a part-filled last row does not
+   expose the divider colour where the cells run out. */
+.stops { display: grid; grid-template-columns: 1fr; gap: 0;
+         background: #131017; border: 1px solid rgba(217,180,90,.12); }
+@media (min-width: 700px)  { .stops { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1080px) { .stops { grid-template-columns: repeat(3, 1fr); } }
+.stop {
+  background: #131017;
+  padding: 1.15rem 1.3rem;
+  border-right: 1px solid rgba(217,180,90,.12);
+  border-bottom: 1px solid rgba(217,180,90,.12);
+}
+.stop__name {
+  font-family: var(--display);
+  font-size: 1.08rem;
+  color: var(--gild);
+  margin-bottom: .35rem;
+}
+.stop__desc { font-size: .86rem; line-height: 1.65; color: #a9a190; }
+.stop--taken { opacity: .5; }
+.stop--taken .stop__name { color: var(--mist-dim); text-decoration: line-through; }
+.stop__taken {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--rock);
+}
+
+/* ── Contact details, in the modal and on the page ──────────────────────── */
+.modal__contact, .contact-block {
+  margin-top: 1.4rem;
+  font-style: normal;
+  font-size: .9rem;
+  line-height: 1.85;
+  color: var(--mist);
+}
+.modal__contact strong, .contact-block strong {
+  color: var(--parchment); font-weight: 600;
+}
+.modal__contact a, .contact-block a {
+  color: var(--gild); border-bottom: 1px solid rgba(217,180,90,.3);
+}
+.modal__legal, .legal {
+  margin-top: 1.25rem;
+  font-size: .75rem;
+  line-height: 1.7;
+  color: var(--mist-dim);
+}
+.contact-block { text-align: center; }

@@ -23,12 +23,13 @@ python3 -m http.server 8000
 | `estey.html` | The Claremont Estey, Opus 2981 (1931), with its timeline |
 | `oberlin.html` | The Oberlin Skinner, Aeolian-Skinner Opus 230-A (1955), with its timeline |
 | `new-organ.html` | The new instrument being built, with its forward timeline |
-| `support.html` | Buy a Pipe, donor tiers, sponsorship benefits, naming opportunities |
+| `support.html` | Buy a Pipe, donor levels ($1,000–$150,000, 98 named pipe sets), contact |
 
 ```
 assets/css/cathedral.css    # design system + every component
 assets/js/cathedral.js      # config, façades, modal, video, reveals, counters
 assets/img/README.md        # photograph sourcing manifest — read before publishing
+docs/source-text/           # the Conservatory's own text, the authority for all quotes
 ```
 
 ## Configuration
@@ -36,12 +37,13 @@ assets/img/README.md        # photograph sourcing manifest — read before publi
 Both values live at the top of `assets/js/cathedral.js`.
 
 ```js
-var CONTACT_EMAIL = 'info@sedonaconservatory.org';   // ← verify this address
+var CONTACT_EMAIL = 'info@SedonaConservatory.org';   // confirmed
 var PIPE_UP_VIDEO = { provider: 'vimeo', id: '345343665' };
 ```
 
-- **`CONTACT_EMAIL`** is still a *guess* and must be verified before launch. It's what
-  the Contact modal composes to.
+- **`CONTACT_EMAIL`** is `info@SedonaConservatory.org`, confirmed from the Conservatory's
+  own pages. The contact modal and the support page also carry the published phone number,
+  (928) 554-5431, and the office address.
 - **`PIPE_UP_VIDEO`** is set to the *Pipe Up* film on Vimeo. The player is click-to-load,
   so nothing is requested from Vimeo until a visitor presses play; `support.html` also
   carries a plain link to the video for anyone without JavaScript. Setting `provider` to
@@ -100,29 +102,23 @@ Original writing is kept only where the sources have no equivalent: the "Voices"
 explainer, the timelines' summary headings, the donor-tier framing, the venue note, and
 all connective and navigational copy. That material is the site's own.
 
-> ### ⚠ The wording is source-derived, but NOT verified verbatim
->
-> This environment has **no outbound web access at all** — not to
-> `sedonaconservatory.org`, not to `organhistoricalsociety.org`, not to `example.com`.
-> Every request is refused at the gateway. The only working research tool is a
-> server-side web search, so **all of this wording was reconstructed from search-engine
-> result summaries. No source page was ever read directly.**
->
-> This is demonstrably lossy. Asked twice about the same Buy-A-Pipe page, the search
-> returned two different phrasings of the same sentence:
->
-> - *"…permanently inscribed within the instrument's magnificent case"*
-> - *"…permanently inscribed on the casework of the internationally-significant organ
->   that will be installed at the Sedona Conservatory Concert Hall"*
->
-> A second pass also surfaced a detail the first had dropped ("soon-to-be-available"
-> SedCon logo items). The substance held up both times; the exact words did not.
->
-> So: the copy follows the sources closely and is attributed to them, but **it is not
-> guaranteed verbatim.** Before publishing, open each cited page and check every `.said`
-> block, every naming-opportunity description, and the Buy-A-Pipe benefits against the
-> originals. This matters most on `support.html`, where the text describes what a donor
-> receives for their money.
+**As of 1 August 2026 the quoted copy is verified.** The site owner supplied HTML
+exports of the three Conservatory pages; their plain-text extractions live in
+`docs/source-text/` and are the authority for every quoted passage. The earlier warning
+about search-reconstructed wording no longer applies.
+
+Two things the verified text changed, which are worth knowing if you edit further:
+
+- **The Estey is not yet in Sedona.** The Aeolian-Skinner is; the Claremont instrument is
+  "currently being prepared for its transport to Arizona." Earlier drafts said both shared
+  quarters.
+- **The American Classic began at Claremont, not with Aeolian-Skinner.** The 1931 Estey was
+  "the first American concert hall organ to comprehensively employ this international
+  design," the concept that "eventually became known as 'The American Classic.'"
+
+The Conservatory's own pages disagree on the pipe count — `concert-organ` and `donations`
+say 12,700, `buyapipe` says 12,800. This site uses **more than 12,700**, the figure two of
+the three give. See `docs/source-text/README.md`.
 
 ## Where the content came from
 
@@ -131,12 +127,14 @@ Historical Society, the Pipe Organ Database and Pipedreams:
 
 - **The project** — c. 235 ranks, more than 12,700 pipes, a new five-manual console with
   300 stops, an organ case spanning the full width of the stage.
-- **Buy-A-Pipe** — current goal of 2,500 pipes at $100 each; Soloists / Maestros /
-  Partners tiers; sponsor names and their pipes inscribed within the case; preferred
-  seating; reductions on SedCon logo items.
-- **Naming** — Claremont Console, Oberlin Console, Full Conservatory Console, Organ Case,
-  and the Great, Swell and Neo-Baroque divisions, plus donor-directed rights for
-  significant gifts.
+- **Buy-A-Pipe** — a Restorative Sponsorship, current goal 2,500 pipes at $100 each. Gold
+  "Soloists"/"Partners" button (up to $100, or $20/$50/$75); red "Maestros" button (two or
+  more pipes at $100 each, each with its own dedication).
+- **Donor levels** — the full published ladder, $1,000 to $150,000, with all 98 named pipe
+  sets and their descriptions, from Nachthorn to the Tuba Sonora and the organ case. The
+  Tierce is marked sponsored, as the source does.
+- **Contact** — info@SedonaConservatory.org, (928) 554-5431, 560 Concho Drive, Sedona, AZ
+  86351. 501(c)(3); donations tax-deductible to the full extent of the law.
 - **Estey Opus 2981** — built 1931 for Bridges Auditorium, the gift of Mr. and Mrs.
   Appleton Bridges in memory of their daughter Mabel Shaw Bridges (d. 1907);
   specification by Joseph W. Clokey and James B. Jamison; dedicatory recital 23 November
@@ -148,13 +146,12 @@ Historical Society, the Pipe Organ Database and Pipedreams:
 
 ## What couldn't be sourced, and what to check
 
-The build environment had **no outbound network access to any external host** — every
-fetch of `sedonaconservatory.org`, the Organ Historical Society, the Pipe Organ Database
-and Wikipedia was refused at the gateway. Everything above was reconstructed from search
-results rather than read off the pages directly. Consequently:
+The build environment has **no outbound network access to any external host** — every
+fetch is refused at the gateway, including `example.com`. The Conservatory's own text was
+supplied as HTML exports instead. Remaining gaps:
 
-- **No photographs could be downloaded.** See `assets/img/README.md`.
-- **`CONTACT_EMAIL` is unverified.**
+- **No photographs could be downloaded.** See `assets/img/README.md`. This is now the
+  only outstanding item.
 - **Sources disagree on two details.** The pipe count is given as both 12,700 and 12,800
   — the conservative figure is used. The Skinner predecessor in Finney Chapel is dated
   both 1914 and 1915 — 1915 is used.
