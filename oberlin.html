@@ -5,8 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Oberlin Skinner, Aeolian-Skinner Opus 230-A (1955) — Sedona Concert Organ</title>
 <meta name="description" content="Aeolian-Skinner Opus 230-A, installed in Oberlin’s Finney Chapel in 1955 and moved to Sedona in 2015 — the second of the two landmark organs behind the Sedona Concert Organ.">
-<meta name="theme-color" content="#0b0a0d">
+<meta name="theme-color" content="#f8f1e6">
 <link rel="stylesheet" href="assets/css/cathedral.css">
+<link rel="stylesheet" href="assets/css/theme-sedona.css" id="theme-css" data-default="sedona">
+<script>
+/* Theme switcher for testing: ?theme=night or ?theme=sedona, remembered in
+   localStorage. Runs before paint so there is no flash. Delete this block and
+   the data-default attribute to lock the site to one theme. */
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get('theme');
+    if (q) localStorage.setItem('sco-theme', q);
+    var t = q || localStorage.getItem('sco-theme');
+    var el = document.getElementById('theme-css');
+    if (t && el && t !== el.dataset.default) el.href = 'assets/css/theme-' + t + '.css';
+  } catch (e) {}
+})();
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0a0d'/%3E%3Cg fill='%23d9b45a'%3E%3Crect x='6' y='10' width='3' height='16' rx='1.5'/%3E%3Crect x='11.5' y='6' width='3' height='20' rx='1.5'/%3E%3Crect x='17' y='3' width='3' height='23' rx='1.5'/%3E%3Crect x='22.5' y='8' width='3' height='18' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>

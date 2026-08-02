@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME · NIGHT
+   The candlelit cathedral. Load after cathedral.css.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+
+  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+  --void:           #08070a;   /* the contrast band behind .section--dark   */
+  --stone-deep:     #100e14;   /* page                                       */
+  --stone:          #17141c;   /* cards                                      */
+  --stone-lit:      #221d2a;   /* raised cards                               */
+  --stone-edge:     #322b3c;
+  --surface-deep:   #060508;   /* footer                                     */
+  --surface-inset:  #131017;   /* pipe-set cells, form fields                */
+  --surface-card:   #14121a;   /* native select menu                         */
+  --surface-red:    #241820;   /* the Maestros card                          */
+  --facade-fade:    #08070a;   /* colour the hero pipes fade into            */
+
+  --void-rgb:        8, 7, 10;
+  --backdrop-rgb:    6, 5, 8;
+  --surface-rgb:    23, 20, 28;
+  --surface-lit-rgb: 34, 29, 42;
+
+  /* ── Ink ──────────────────────────────────────────────────────────────── */
+  --ink:        #ece5d8;
+  --ink-soft:   #d5cdbd;
+  --ink-dim:    #b8b0a0;
+  --ink-muted:  #a49b8c;
+  --ink-faint:  #6f6759;
+  --on-gild:    #08070a;       /* text on a gilded button                    */
+
+  /* ── Gilding ──────────────────────────────────────────────────────────── */
+  --gild:        #d9b45a;
+  --gild-bright: #f0d693;
+  --gild-deep:   #8a6f2c;
+  --gild-rgb:    217, 180, 90;
+
+  /* ── Stained glass ────────────────────────────────────────────────────── */
+  --lapis:    #2a4b8d;
+  --ruby:     #8c1f2f;
+  --emerald:  #1d5b4a;
+  --amethyst: #4a2d6b;
+  --rock:     #a4462d;
+  --rock-rgb: 164, 70, 45;
+
+  /* Voice-card accents — lifted so they read against the dark ground */
+  --accent-emerald:  #37a184;
+  --accent-lapis:    #5b86d0;
+  --accent-ruby:     #c74459;
+  --accent-amethyst: #8f6bc0;
+  --accent-rock:     #d1704f;
+
+  /* ── Light and shadow ─────────────────────────────────────────────────── */
+  --shadow-rgb: 0, 0, 0;
+  --light-rgb:  255, 232, 175;
+  --grain-opacity: .5;
+  --grain-blend:   overlay;
+
+  /* ── Atmospheres ──────────────────────────────────────────────────────── */
+  --bg-hero:
+    radial-gradient(120% 85% at 50% 8%,  rgba(217,180,90,.15), transparent 55%),
+    radial-gradient(90% 60% at 50% 100%, rgba(164,70,45,.28), transparent 65%),
+    linear-gradient(180deg, #0d0b11 0%, #13101a 45%, #08070a 100%);
+
+  --bg-pagehead:
+    radial-gradient(100% 80% at 50% 0%, rgba(217,180,90,.13), transparent 60%),
+    linear-gradient(180deg, #0d0b11, #100e14);
+
+  --bg-patronage:
+    radial-gradient(90% 60% at 50% 0%, rgba(164,70,45,.2), transparent 60%),
+    linear-gradient(180deg, #100e14, #0d0a10);
+
+  --bg-film:
+    radial-gradient(70% 70% at 50% 45%, rgba(217,180,90,.13), transparent 70%),
+    linear-gradient(165deg, #221d2a, #08070a);
+
+  --bg-modal:
+    radial-gradient(100% 60% at 50% 0%, rgba(217,180,90,.1), transparent 60%),
+    linear-gradient(170deg, #17141c, #0b0a0e);
+
+  --bg-console: linear-gradient(170deg, #241c16, #120e0c);
+
+  /* ── The instrument ───────────────────────────────────────────────────── */
+  --key-black:       #0d0b0a;
+  --key-white:       #f4ecdb;
+  --key-white-shade: #cbc2af;
+
+  --pipe-metal: linear-gradient(90deg,
+      #1b1720 0%, #4a4352 22%, #8d8496 42%, #cfc4d4 50%,
+      #8d8496 58%, #4a4352 78%, #16131b 100%);
+}

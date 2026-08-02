@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME · SEDONA
+   The sunlit cathedral. Sandstone and warm light, red-rock terracotta,
+   juniper and desert sky in the glass, bronze in place of gold leaf.
+   Load after cathedral.css.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+
+  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+  --void:           #f2dcbd;   /* clay band behind .section--dark           */
+  --stone-deep:     #fbf5eb;   /* page — sunlit sandstone                    */
+  --stone:          #fffaf0;   /* cards                                      */
+  --stone-lit:      #fffdf8;   /* raised cards                               */
+  --stone-edge:     #e0cdb2;
+  --surface-deep:   #ece0cb;   /* footer                                     */
+  --surface-inset:  #fdf7ec;   /* pipe-set cells, form fields                */
+  --surface-card:   #fffaf0;   /* native select menu                         */
+  --surface-red:    #fbe6da;   /* the Maestros card                          */
+  --facade-fade:    #eed6b4;   /* colour the hero pipes fade into            */
+
+  --void-rgb:       251, 245, 235;
+  --backdrop-rgb:    58,  34,  22;   /* the modal scrim stays dark           */
+  --surface-rgb:    255, 250, 240;
+  --surface-lit-rgb: 255, 253, 248;
+
+  /* ── Ink ──────────────────────────────────────────────────────────────── */
+  --ink:        #2a1b12;
+  --ink-soft:   #46311f;
+  --ink-dim:    #63482f;
+  --ink-muted:  #6f5439;
+  --ink-faint:  #99805f;
+  --on-gild:    #fff8ea;       /* cream on the bronze button                 */
+
+  /* ── Gilding ──────────────────────────────────────────────────────────────
+     Deep enough to hold its own as small type on sandstone; the bright end
+     carries the button gradient and the glints.                             */
+  --gild:        #8a5f18;
+  --gild-bright: #c9932f;
+  --gild-deep:   #5e3f0e;
+  --gild-rgb:    138, 95, 24;
+
+  /* ── Stained glass ────────────────────────────────────────────────────── */
+  --lapis:    #2a4b8d;
+  --ruby:     #8c1f2f;
+  --emerald:  #1d5b4a;
+  --amethyst: #4a2d6b;
+  --rock:     #a4462d;
+  --rock-rgb: 164, 70, 45;
+
+  /* Voice-card accents — deepened so they read against the light ground */
+  --accent-emerald:  #2f7d5b;   /* juniper       */
+  --accent-lapis:    #1f7a8c;   /* desert sky    */
+  --accent-ruby:     #a8283c;
+  --accent-amethyst: #6b3f9e;
+  --accent-rock:     #b8502a;
+
+  /* ── Light and shadow ─────────────────────────────────────────────────────
+     Shadows are warm brown rather than black, so nothing looks bruised.     */
+  --shadow-rgb: 150, 112, 74;
+  --light-rgb:  255, 244, 214;
+  --grain-opacity: .3;
+  --grain-blend:   multiply;
+
+  /* ── Atmospheres ──────────────────────────────────────────────────────── */
+  --bg-hero:
+    radial-gradient(130% 70% at 50% 0%,   rgba(104,178,190,.4), transparent 58%),
+    radial-gradient(110% 55% at 50% 100%, rgba(188,74,36,.5), transparent 72%),
+    radial-gradient(80% 45% at 50% 42%,   rgba(255,200,105,.42), transparent 70%),
+    linear-gradient(180deg, #eaf4f3 0%, #fdf3e0 40%, #f6dcbb 72%, #eccfa8 100%);
+
+  --bg-pagehead:
+    radial-gradient(120% 90% at 50% 0%, rgba(104,178,190,.32), transparent 62%),
+    radial-gradient(90% 70% at 50% 35%, rgba(255,200,105,.4), transparent 70%),
+    linear-gradient(180deg, #eef5f3, #fbf5eb);
+
+  --bg-patronage:
+    radial-gradient(100% 65% at 50% 0%, rgba(188,74,36,.34), transparent 66%),
+    linear-gradient(180deg, #fbf5eb, #f4e2c8);
+
+  --bg-film:
+    radial-gradient(70% 70% at 50% 45%, rgba(255,206,116,.4), transparent 70%),
+    linear-gradient(165deg, #fffaf0, #ead9bd);
+
+  --bg-modal:
+    radial-gradient(100% 60% at 50% 0%, rgba(255,206,116,.3), transparent 60%),
+    linear-gradient(170deg, #fffaf0, #f6ecdb);
+
+  /* The console keeps its dark walnut case — it is the focal object on the
+     page, and cream keys need something to sit against. */
+  --bg-console: linear-gradient(170deg, #4a3423, #2b1c11);
+
+  /* ── The instrument ───────────────────────────────────────────────────── */
+  --key-black:       #241610;
+  --key-white:       #fffdf6;
+  --key-white-shade: #ded4c0;
+
+  /* Polished tin, darkened at the edges so the pipes hold their shape
+     against a light ground. */
+  --pipe-metal: linear-gradient(90deg,
+      #3c3742 0%, #6c6476 20%, #a49cb2 40%, #ece8f2 50%,
+      #a49cb2 60%, #6c6476 80%, #383340 100%);
+}
+
+/* ── Light-ground corrections ──────────────────────────────────────────────
+   A few effects were built to glow out of darkness and need re-pointing. */
+
+/* Shafts read as warm light falling on stone, not as haze */
+.shaft { mix-blend-mode: multiply; opacity: .55; }
+.shafts--warm .shaft { mix-blend-mode: multiply; }
+
+/* The rose window sits on light, so its glow should not wash it out */
+.rose-holder { filter: drop-shadow(0 14px 34px rgba(150,112,74,.35)); }
+
+/* Vault ribs need to darken the sky rather than lighten it */
+.westfront__sky { mix-blend-mode: multiply; opacity: .5; }
+
+/* The stained-glass lancets keep their saturation but gain a stone surround */
+.arch-svg__lead { stroke: #6b5336; }
+.panel__arch::after { filter: blur(34px); opacity: .55; }
+
+/* Gilded buttons: a bronze plate, so the cream lettering has something solid */
+.btn--gild { box-shadow: 0 1px 0 rgba(255,255,255,.25) inset; }
+.btn--gild:hover { box-shadow: 0 10px 28px -12px rgba(138,95,24,.65); }
+
+/* Numerals and display gradients were tuned for a dark ground */
+.numeral__value, .goal dd, .level__amount, .hero-title__line--gild,
+.illuminated > p::first-letter {
+  background: linear-gradient(170deg, var(--gild-bright), var(--gild) 45%, var(--gild-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Keep the footer legible now that it is a light band */
+.crypt { border-top-color: rgba(138,95,24,.28); }
+
+/* The hero pipes need to hold their edges on a light ground: less fade at the
+   floor, and a hairline so each pipe reads as a separate cylinder. */
+.westfront .facade::before { height: 40%; }
+.pipe {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55),
+              0 0 0 .5px rgba(60,55,66,.35);
+}
+
+/* The console case is dark walnut, so its label needs the light ink */
+.manual__label { color: #e8c46a; opacity: .95; }

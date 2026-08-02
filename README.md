@@ -26,11 +26,46 @@ python3 -m http.server 8000
 | `support.html` | Buy a Pipe, donor levels ($1,000–$150,000, 98 named pipe sets), contact |
 
 ```
-assets/css/cathedral.css    # design system + every component
-assets/js/cathedral.js      # config, façades, modal, video, reveals, counters
-assets/img/README.md        # photograph sourcing manifest — read before publishing
-docs/source-text/           # plain-text copies of the live pages, for reference
+assets/css/cathedral.css      # structure: layout, type, components — no colour
+assets/css/theme-sedona.css   # palette: sunlit sandstone, red rock, desert sky
+assets/css/theme-night.css    # palette: the original candlelit cathedral
+assets/js/cathedral.js        # config, façades, modal, video, reveals, counters
+assets/img/README.md          # photograph manifest
+docs/source-text/             # plain-text copies of the live pages, for reference
 ```
+
+## Themes
+
+Colour lives entirely in the theme stylesheets; `cathedral.css` holds no colour at
+all, only tokens. Swapping a theme is one `<link>`.
+
+```html
+<link rel="stylesheet" href="assets/css/cathedral.css">
+<link rel="stylesheet" href="assets/css/theme-sedona.css" id="theme-css" data-default="sedona">
+```
+
+**Sedona** (default) — a sunlit cathedral. Desert sky at the top of the hero falling
+through warm sand to red rock at the floor; sandstone pages, clay contrast bands,
+bronze in place of gold leaf, juniper and turquoise among the voice accents. The
+stained glass keeps its full saturation.
+
+**Night** — the original: candlelit stone, gold leaf, glass glowing out of the dark.
+
+### Switching while testing
+
+Append `?theme=night` or `?theme=sedona` to any URL. The choice is remembered in
+`localStorage`, and the swap runs before paint so there is no flash. To lock the site
+to one theme for launch, delete the inline `<script>` block and the `data-default`
+attribute from the five pages.
+
+### Adding a theme
+
+Copy `theme-night.css`, rename, and change the values. Every token it defines is
+consumed by `cathedral.css`, so nothing else needs touching. The tokens cover
+surfaces, ink, gilding, glass, accents, shadow and light, the six atmosphere
+gradients, and the instrument (keys, pipe metal). A theme file may also carry a short
+tail of corrections — Sedona's re-points a few effects that were built to glow out of
+darkness, such as switching the light shafts to `multiply`.
 
 ## Configuration
 
