@@ -18,7 +18,22 @@
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --rhythm: clamp(5rem, 12vw, 10rem);
 
-  --ease: cubic-bezier(.22, .61, .36, 1);
+  /* Motion */
+  --ease:     cubic-bezier(.22, .61, .36, 1);   /* settle                     */
+  --e-spring: cubic-bezier(.34, 1.36, .5, 1);   /* lift, with a little rebound */
+  --e-exit:   cubic-bezier(.4, 0, .6, 1);       /* return                     */
+  --dur-fast: 160ms;
+  --dur-base: 300ms;
+  --dur-slow: 640ms;
+
+  /* Elevation — colour comes from the theme's --shadow-rgb */
+  --elev-1: 0 2px 6px -2px rgba(var(--shadow-rgb), .28);
+  --elev-2: 0 6px 16px -6px rgba(var(--shadow-rgb), .38),
+            0 18px 40px -22px rgba(var(--shadow-rgb), .55);
+  --elev-3: 0 10px 24px -8px rgba(var(--shadow-rgb), .42),
+            0 30px 64px -28px rgba(var(--shadow-rgb), .7);
+
+  --lift: -6px;
 }
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
@@ -790,13 +805,6 @@ body::after {
   padding: clamp(1.75rem, 3vw, 2.5rem);
   background: linear-gradient(165deg, var(--stone), var(--stone-deep));
   border: 1px solid rgba(var(--gild-rgb),.13);
-  transition: border-color .5s var(--ease), transform .5s var(--ease),
-              box-shadow .5s var(--ease);
-}
-.cell:hover {
-  border-color: rgba(var(--gild-rgb),.42);
-  transform: translateY(-4px);
-  box-shadow: 0 22px 48px -26px rgba(var(--shadow-rgb),.95);
 }
 .cell--wide {
   grid-column: 1 / -1;
@@ -866,9 +874,7 @@ body::after {
   text-align: center;
   border: 1px solid rgba(var(--gild-rgb),.18);
   background: rgba(var(--surface-rgb),.6);
-  transition: transform .5s var(--ease), border-color .5s var(--ease);
 }
-.tier:hover { transform: translateY(-5px); border-color: rgba(var(--gild-rgb),.5); }
 .tier--feature {
   border-color: rgba(var(--gild-rgb),.48);
   background:
@@ -1066,7 +1072,6 @@ body::after {
   margin: 0;
   background: linear-gradient(165deg, var(--stone-lit), var(--stone-deep));
   border: 1px solid rgba(var(--gild-rgb),.28);
-  box-shadow: 0 30px 70px -34px rgba(var(--shadow-rgb),.95);
 }
 .plate__frame {
   position: relative;
@@ -1169,13 +1174,6 @@ body::after {
   padding: clamp(1.75rem, 3vw, 2.5rem);
   background: linear-gradient(165deg, var(--stone), var(--stone-deep));
   border: 1px solid rgba(var(--gild-rgb),.16);
-  transition: transform .5s var(--ease), border-color .5s var(--ease),
-              box-shadow .5s var(--ease);
-}
-.xlink:hover {
-  transform: translateY(-5px);
-  border-color: rgba(var(--gild-rgb),.5);
-  box-shadow: 0 24px 50px -28px rgba(var(--shadow-rgb),.95);
 }
 .xlink[aria-current="page"] {
   border-color: rgba(var(--gild-rgb),.55);
@@ -1317,13 +1315,6 @@ body::after {
   padding: clamp(1.9rem, 3vw, 2.6rem);
   border: 1px solid rgba(var(--gild-rgb),.2);
   background: linear-gradient(165deg, var(--stone), var(--stone-deep));
-  transition: transform .5s var(--ease), border-color .5s var(--ease),
-              box-shadow .5s var(--ease);
-}
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(var(--gild-rgb),.5);
-  box-shadow: 0 24px 52px -28px rgba(var(--shadow-rgb),.95);
 }
 .card--gold {
   border-color: rgba(var(--gild-rgb),.55);
@@ -1612,3 +1603,94 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
   color: var(--ink-faint);
 }
 .contact-block { text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SURFACE — one interaction primitive shared by every raised component
+   ═══════════════════════════════════════════════════════════════════════════
+   The panels across the site were each carrying their own hover rules, which
+   drifted apart. They now share one behaviour: a sprung lift, a two-layer
+   shadow (contact + ambient), a border that blooms, and a slow gilded sheen
+   that crosses the face once. Only .voice keeps a bespoke treatment, since it
+   is a flat tile rather than a raised card.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.card, .cell, .xlink, .tier, .name-op, .plate, .level {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: var(--elev-1);
+  transition: transform var(--dur-base) var(--e-exit),
+              border-color var(--dur-base) var(--ease),
+              box-shadow var(--dur-base) var(--ease);
+}
+
+/* The sheen: a narrow diagonal band of gild, parked off the left edge */
+.card::after, .cell::after, .xlink::after,
+.tier::after, .name-op::after, .plate::after, .level::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(104deg,
+    transparent 38%,
+    rgba(var(--gild-rgb), .18) 48%,
+    rgba(var(--gild-rgb), .06) 54%,
+    transparent 64%);
+  transform: translate3d(-130%, 0, 0);
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .card:hover, .cell:hover, .xlink:hover,
+  .tier:hover, .name-op:hover, .plate:hover, .level:hover {
+    transform: translate3d(0, var(--lift), 0);
+    border-color: rgba(var(--gild-rgb), .55);
+    box-shadow: var(--elev-3);
+    transition: transform var(--dur-base) var(--e-spring),
+                border-color var(--dur-fast) var(--ease),
+                box-shadow var(--dur-base) var(--ease);
+  }
+  .card:hover::after, .cell:hover::after, .xlink:hover::after,
+  .tier:hover::after, .name-op:hover::after,
+  .plate:hover::after, .level:hover::after {
+    transform: translate3d(130%, 0, 0);
+    opacity: 1;
+    transition: transform var(--dur-slow) var(--ease),
+                opacity var(--dur-fast) linear;
+  }
+}
+
+/* Keyboard users get the same lift, since .xlink and .level are focusable */
+.xlink:focus-visible, .level > summary:focus-visible {
+  outline: 2px solid var(--gild);
+  outline-offset: 3px;
+}
+.xlink:focus-visible {
+  transform: translate3d(0, var(--lift), 0);
+  box-shadow: var(--elev-3);
+}
+
+/* Pressing a card should acknowledge the press rather than stay lifted */
+.card:active, .cell:active, .xlink:active, .tier:active, .name-op:active {
+  transform: translate3d(0, -2px, 0);
+  transition-duration: var(--dur-fast);
+}
+
+/* Buttons pick up the same vocabulary */
+.btn { will-change: transform; }
+.btn--gild:hover, .btn--ghost:hover { transform: translate3d(0, -2px, 0); }
+.btn:active { transform: translate3d(0, 0, 0); transition-duration: var(--dur-fast); }
+.btn:focus-visible { outline: 2px solid var(--gild); outline-offset: 3px; }
+
+/* .voice is a flat tile: it lights from within instead of lifting */
+.voice { transition: background var(--dur-base) var(--ease); }
+.voice::before { transition: transform var(--dur-slow) var(--e-spring); }
+
+/* Nothing sweeps or springs when motion is turned down */
+@media (prefers-reduced-motion: reduce) {
+  .card::after, .cell::after, .xlink::after,
+  .tier::after, .name-op::after, .plate::after, .level::after { display: none; }
+  .card:hover, .cell:hover, .xlink:hover,
+  .tier:hover, .name-op:hover, .plate:hover, .level:hover,
+  .xlink:focus-visible { transform: none; }
+}

@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME · GARNET
+   The cathedral at vespers. Deep reds rather than literal desert colour —
+   oxblood and garnet stone, copper-gold leaf, the glass burning out of it.
+   Load after cathedral.css.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+
+  /* ── Surfaces ─────────────────────────────────────────────────────────────
+     Every surface is a red, not a neutral: the darks are oxblood, the cards
+     a shade of dried blood-red brick, so nothing on the page reads as grey. */
+  --void:           #120609;   /* the contrast band behind .section--dark    */
+  --stone-deep:     #1a0a0d;   /* page                                       */
+  --stone:          #261014;   /* cards                                      */
+  --stone-lit:      #33161b;   /* raised cards                               */
+  --stone-edge:     #4d222a;
+  --surface-deep:   #0d0406;   /* footer                                     */
+  --surface-inset:  #1f0c10;   /* pipe-set cells, form fields                */
+  --surface-card:   #261014;   /* native select menu                         */
+  --surface-red:    #3d151b;   /* the Maestros card, deepest of them all     */
+  --facade-fade:    #120609;   /* colour the hero pipes fade into            */
+
+  --void-rgb:        18,  6,  9;
+  --backdrop-rgb:    12,  3,  5;
+  --surface-rgb:     38, 16, 20;
+  --surface-lit-rgb: 51, 22, 27;
+
+  /* ── Ink ──────────────────────────────────────────────────────────────── */
+  --ink:        #f4e8de;
+  --ink-soft:   #ddc8bc;
+  --ink-dim:    #c2a89b;
+  --ink-muted:  #a98d80;
+  --ink-faint:  #7c5b54;
+  --on-gild:    #1a0a0d;       /* dark ink on the copper button              */
+
+  /* ── Gilding ──────────────────────────────────────────────────────────────
+     Pulled toward copper so the gold belongs to the reds around it rather
+     than sitting on top of them. */
+  --gild:        #dda85c;
+  --gild-bright: #f5d79c;
+  --gild-deep:   #8e5622;
+  --gild-rgb:    221, 168, 92;
+
+  /* ── Stained glass ────────────────────────────────────────────────────── */
+  --lapis:    #2a4b8d;
+  --ruby:     #8c1f2f;
+  --emerald:  #1d5b4a;
+  --amethyst: #4a2d6b;
+  --rock:     #a4462d;
+  --rock-rgb: 164, 70, 45;
+
+  /* Voice-card accents — lifted to carry against the deep red ground */
+  --accent-emerald:  #46b394;
+  --accent-lapis:    #7aa6e6;
+  --accent-ruby:     #e8697d;
+  --accent-amethyst: #ab86dc;
+  --accent-rock:     #ee8a60;
+
+  /* ── Light and shadow ─────────────────────────────────────────────────────
+     Shadows carry a red cast, so depth reads as recess in the same stone. */
+  --shadow-rgb: 26, 2, 6;
+  --light-rgb:  255, 226, 176;
+  --grain-opacity: .45;
+  --grain-blend:   overlay;
+
+  /* ── Atmospheres ──────────────────────────────────────────────────────── */
+  --bg-hero:
+    radial-gradient(130% 72% at 50% 2%,   rgba(221,168,92,.16), transparent 58%),
+    radial-gradient(115% 58% at 50% 100%, rgba(158,26,38,.55), transparent 72%),
+    radial-gradient(70% 40% at 50% 46%,   rgba(120,20,32,.4), transparent 74%),
+    linear-gradient(180deg, #1d0a0f 0%, #2c0e15 44%, #16060a 100%);
+
+  --bg-pagehead:
+    radial-gradient(120% 88% at 50% 0%, rgba(158,26,38,.4), transparent 62%),
+    radial-gradient(85% 65% at 50% 30%, rgba(221,168,92,.1), transparent 70%),
+    linear-gradient(180deg, #250c12, #1a0a0d);
+
+  --bg-patronage:
+    radial-gradient(100% 62% at 50% 0%, rgba(174,32,44,.42), transparent 66%),
+    linear-gradient(180deg, #1a0a0d, #24090f);
+
+  --bg-film:
+    radial-gradient(70% 70% at 50% 45%, rgba(221,168,92,.16), transparent 70%),
+    linear-gradient(165deg, #33161b, #120609);
+
+  --bg-modal:
+    radial-gradient(100% 60% at 50% 0%, rgba(221,168,92,.13), transparent 60%),
+    linear-gradient(170deg, #261014, #14070a);
+
+  /* Rosewood rather than walnut, to sit inside the red scheme */
+  --bg-console: linear-gradient(170deg, #3d2018, #1c0b0b);
+
+  /* ── The instrument ───────────────────────────────────────────────────── */
+  --key-black:       #140708;
+  --key-white:       #f6e9d8;
+  --key-white-shade: #c9b6a2;
+
+  /* Pewter with a warm reflection picked up off the surrounding stone */
+  --pipe-metal: linear-gradient(90deg,
+      #1d1216 0%, #4e3b42 22%, #93808a 42%, #d8c9cc 50%,
+      #93808a 58%, #4e3b42 78%, #190f13 100%);
+}
+
+/* ── Theme corrections ─────────────────────────────────────────────────────
+   Small adjustments where a red ground behaves differently from a neutral. */
+
+/* Against red stone the sheen reads warmer if it carries a little rose */
+.card::after, .cell::after, .xlink::after,
+.tier::after, .name-op::after, .plate::after, .level::after {
+  background: linear-gradient(104deg,
+    transparent 38%,
+    rgba(255, 214, 150, .2) 47%,
+    rgba(232, 105, 125, .1) 54%,
+    transparent 64%);
+}
+
+/* The Maestros card leans on the ruby rather than the gild */
+.card--red:hover { border-color: rgba(232, 105, 125, .5); }
+
+/* Light shafts pick up the ember colour of the hero floor */
+.shafts--warm .shaft {
+  background: linear-gradient(180deg, rgba(255,196,140,.16), rgba(158,26,38,0) 70%);
+}

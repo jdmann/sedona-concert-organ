@@ -27,6 +27,7 @@ python3 -m http.server 8000
 
 ```
 assets/css/cathedral.css      # structure: layout, type, components — no colour
+assets/css/theme-garnet.css   # palette: oxblood and garnet, copper-gold  (default)
 assets/css/theme-sedona.css   # palette: sunlit sandstone, red rock, desert sky
 assets/css/theme-night.css    # palette: the original candlelit cathedral
 assets/js/cathedral.js        # config, façades, modal, video, reveals, counters
@@ -41,19 +42,23 @@ all, only tokens. Swapping a theme is one `<link>`.
 
 ```html
 <link rel="stylesheet" href="assets/css/cathedral.css">
-<link rel="stylesheet" href="assets/css/theme-sedona.css" id="theme-css" data-default="sedona">
+<link rel="stylesheet" href="assets/css/theme-garnet.css" id="theme-css" data-default="garnet">
 ```
 
-**Sedona** (default) — a sunlit cathedral. Desert sky at the top of the hero falling
-through warm sand to red rock at the floor; sandstone pages, clay contrast bands,
-bronze in place of gold leaf, juniper and turquoise among the voice accents. The
-stained glass keeps its full saturation.
+**Garnet** (default) — the cathedral at vespers. Deep reds rather than literal desert
+colour: every surface is an oxblood or a garnet rather than a neutral, so nothing on
+the page reads as grey. Gold is pulled toward copper so it belongs to the reds around
+it. Shadows carry a red cast, so depth reads as recess in the same stone.
+
+**Sedona** — a sunlit cathedral. Desert sky at the top of the hero falling through warm
+sand to red rock at the floor; sandstone pages, clay contrast bands, bronze in place of
+gold leaf, juniper and turquoise among the voice accents.
 
 **Night** — the original: candlelit stone, gold leaf, glass glowing out of the dark.
 
 ### Switching while testing
 
-Append `?theme=night` or `?theme=sedona` to any URL. The choice is remembered in
+Append `?theme=garnet`, `?theme=sedona` or `?theme=night` to any URL. The choice is remembered in
 `localStorage`, and the swap runs before paint so there is no flash. To lock the site
 to one theme for launch, delete the inline `<script>` block and the `data-default`
 attribute from the five pages.
@@ -66,6 +71,31 @@ surfaces, ink, gilding, glass, accents, shadow and light, the six atmosphere
 gradients, and the instrument (keys, pipe metal). A theme file may also carry a short
 tail of corrections — Sedona's re-points a few effects that were built to glow out of
 darkness, such as switching the light shafts to `multiply`.
+
+## Components
+
+Every raised panel — `.card`, `.cell`, `.xlink`, `.tier`, `.name-op`, `.plate`,
+`.level` — shares one interaction primitive rather than carrying its own hover rules,
+which had drifted apart. The shared behaviour is:
+
+- a **sprung lift** of `--lift` on a rebounding curve going up, and a plain curve
+  coming back down, so it feels picked up rather than pushed;
+- a **two-layer shadow** — a tight contact shadow plus a wide ambient one — swapping
+  `--elev-1` for `--elev-3`;
+- a **border bloom** to gild, faster than the lift so the edge leads;
+- a **sheen**: a narrow diagonal band of gild parked off the left edge that crosses the
+  face once over `--dur-slow`. It is a `::after` on a `translate3d`, so it composites on
+  the GPU and never triggers layout.
+
+Press states settle to `-2px`, keyboard focus gets the same lift as hover, and the
+whole set is guarded by `@media (hover: hover)` so touch devices don't get stuck in a
+hover state. Under `prefers-reduced-motion` the sheen is removed and the lift dropped.
+
+Motion and elevation are tokens (`--dur-fast/base/slow`, `--e-spring`, `--e-exit`,
+`--elev-1/2/3`) in `cathedral.css`; only the shadow *colour* comes from the theme.
+
+`.voice` deliberately keeps its own treatment — it is a flat tile in a grid, so it
+lights from within instead of lifting out of the page.
 
 ## Configuration
 
