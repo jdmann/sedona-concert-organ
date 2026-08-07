@@ -90,6 +90,13 @@
      page, and cream keys need something to sit against. */
   --bg-console: linear-gradient(170deg, #4a3423, #2b1c11);
 
+  /* ── The church photograph ────────────────────────────────────────────── */
+  --hero-scrim:
+      radial-gradient(110% 60% at 50% 100%, rgba(214,138,90,.3), transparent 70%),
+      linear-gradient(180deg,
+        rgba(253,247,234,.62) 0%, rgba(251,245,235,.78) 45%, rgba(238,214,180,.96) 100%);
+  --hero-photo-filter: saturate(1.1) brightness(1.12) contrast(.94);
+
   /* ── The instrument ───────────────────────────────────────────────────── */
   --key-black:       #241610;
   --key-white:       #fffdf6;

@@ -174,6 +174,25 @@
     }
   });
 
+  /* ── The hero photograph ────────────────────────────────────────────────
+     Same contract as the plates: the layer removes itself if the file is not
+     there, so the hero falls back to the painted atmosphere. */
+  var heroPhoto = document.querySelector('.westfront__photo');
+  if (heroPhoto) {
+    var heroImg = heroPhoto.querySelector('img');
+    var westfront = heroPhoto.closest('.westfront');
+
+    function heroMissing() { heroPhoto.classList.add('is-missing'); }
+    function heroReady() { if (westfront) westfront.classList.add('has-photo'); }
+
+    if (!heroImg) heroMissing();
+    else if (heroImg.complete) { heroImg.naturalWidth ? heroReady() : heroMissing(); }
+    else {
+      heroImg.addEventListener('load', heroReady);
+      heroImg.addEventListener('error', heroMissing);
+    }
+  }
+
   /* ── Masthead: settles into stone once you leave the west front ───────── */
   var masthead = document.getElementById('masthead');
   var sunk = false;

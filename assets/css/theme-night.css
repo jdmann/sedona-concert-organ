@@ -81,6 +81,17 @@
 
   --bg-console: linear-gradient(170deg, #241c16, #120e0c);
 
+  /* ── The church photograph ────────────────────────────────────────────────
+     The scrim is the hero atmosphere painted back over the photograph —
+     candle-glow at the crown, ember at the floor — so the building sits
+     inside the night rather than under a sheet of grey. */
+  --hero-scrim:
+      radial-gradient(120% 85% at 50% 8%,  rgba(217,180,90,.16), transparent 55%),
+      radial-gradient(90% 55% at 50% 100%, rgba(164,70,45,.34), transparent 66%),
+      linear-gradient(180deg,
+        rgba(8,7,10,.78) 0%, rgba(11,9,15,.86) 45%, rgba(8,7,10,.985) 100%);
+  --hero-photo-filter: grayscale(.5) brightness(.62) contrast(1.12);
+
   /* ── The instrument ───────────────────────────────────────────────────── */
   --key-black:       #0d0b0a;
   --key-white:       #f4ecdb;

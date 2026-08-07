@@ -1774,3 +1774,42 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
 /* Rows in the donor ladder tint rather than lift — a list should not have
    each of its rows jumping out of the stack. */
 .level { transition: background var(--dur-base) var(--ease); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE CHURCH — photographs of the building the organs are coming to
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* A photograph behind the west front. It sits above the theme's gradient and
+   under everything else, with a theme-owned scrim so the title keeps its
+   contrast. If the file is absent the whole layer removes itself and the hero
+   looks exactly as it did before. */
+.westfront__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+}
+.westfront__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  filter: var(--hero-photo-filter, none);
+}
+.westfront__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-scrim, linear-gradient(180deg,
+    rgba(var(--void-rgb), .72), rgba(var(--void-rgb), .96)));
+}
+.westfront__photo.is-missing { display: none; }
+
+/* With a photograph behind it the vault ribs would read as noise */
+.westfront.has-photo .westfront__sky { opacity: .35; }
+
+/* A wide plate for the interior, where the instrument will stand */
+.plate--wide .plate__frame { aspect-ratio: 16 / 9; }
+@media (max-width: 640px) {
+  .plate--wide .plate__frame { aspect-ratio: 4 / 3; }
+}

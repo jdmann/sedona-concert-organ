@@ -140,6 +140,11 @@ var PIPE_UP_VIDEO = { provider: 'vimeo', id: '345343665' };
   without them.
 - **The console** — five stacked keyboards drawn in pure CSS: naturals divided every 12px
   with the five sharps of each 84px octave laid over them in the correct 2–3 grouping.
+- **Photographs** — every `<img>` already points at its intended file. If the file is
+  absent, a plate shows an engraved "Photograph wanted" legend and the hero's photo layer
+  removes itself entirely, falling back to the painted atmosphere. Each theme owns the
+  hero's `--hero-scrim` and `--hero-photo-filter`, so the photograph is graded into that
+  theme's light rather than sitting on top of it.
 - **Video** — click-to-load. Nothing is requested from the video host until the visitor
   presses play, so the page sets no third-party cookies on arrival.
 - **Contact modal** — native `<dialog>`, so focus trapping and Escape-to-close come from
@@ -200,11 +205,14 @@ headings, the venue note, and all connective and navigational copy.
 
 ## Outstanding
 
-**Photographs.** The site ships with none, and the build environment has no outbound
-network access, so they could not be fetched. `assets/img/README.md` names the six files
-the pages are already wired for; drop them into `assets/img/` and they appear.
+**Photographs.** The site ships with none. `assets/img/README.md` names the eight files
+the pages are already wired for — two of the church, six of the instruments — and drop-in
+is the only step: the `<img>` elements already point at the intended filenames.
 
 **The venue.** No new building will be constructed for the organ; it will be housed
-inside an existing structure, yet to be announced. Where the venue is referred to at all,
-the site says only that the home is in Sedona and will be announced. Update once the
-building is public.
+inside an existing structure. The home page now carries a *Where it will stand* section
+describing the church — twin bell towers under copper domes, a long nave, a rose window
+above the sanctuary — and the hero is wired to take the exterior photograph as its
+backdrop. The building is **not named anywhere on the site**, since it has not been
+announced publicly; a fineprint line in that section marks the spot. Add the name there
+and in the hero lede once it is public.
