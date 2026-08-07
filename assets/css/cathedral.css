@@ -746,7 +746,7 @@ body::after {
    ═══════════════════════════════════════════════════════════════════════════ */
 /* --rail is both the year-column width and the x of the vertical rail, so the
    markers sit on the line; the year text is inset to clear them. */
-.chronicle { position: relative; --rail: clamp(5rem, 9vw, 7rem); }
+.chronicle { position: relative; --rail: clamp(6.5rem, 12vw, 9.5rem); }
 .chronicle::before {
   content: "";
   position: absolute;
@@ -781,8 +781,14 @@ body::after {
   color: var(--gild);
   text-align: right;
   padding-top: .1rem;
-  padding-right: 1.15rem;
-  white-space: nowrap;
+  padding-right: 1.25rem;
+  /* Labels are not always a bare year — "23 Nov 1931", "The century after" —
+     so they must be free to wrap inside the column rather than spill across
+     the rail and into the body text. */
+  white-space: normal;
+  line-height: 1.3;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 .epoch__body h3 {
   font-family: var(--display);

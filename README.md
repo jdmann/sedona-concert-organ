@@ -27,9 +27,9 @@ python3 -m http.server 8000
 
 ```
 assets/css/cathedral.css      # structure: layout, type, components — no colour
-assets/css/theme-garnet.css   # palette: oxblood and garnet, copper-gold  (default)
+assets/css/theme-night.css    # palette: the original candlelit cathedral (default)
+assets/css/theme-garnet.css   # palette: oxblood and garnet, copper-gold
 assets/css/theme-sedona.css   # palette: sunlit sandstone, red rock, desert sky
-assets/css/theme-night.css    # palette: the original candlelit cathedral
 assets/js/cathedral.js        # config, façades, modal, video, reveals, counters
 assets/img/README.md          # photograph manifest
 docs/source-text/             # plain-text copies of the live pages, for reference
@@ -42,10 +42,13 @@ all, only tokens. Swapping a theme is one `<link>`.
 
 ```html
 <link rel="stylesheet" href="assets/css/cathedral.css">
-<link rel="stylesheet" href="assets/css/theme-garnet.css" id="theme-css" data-default="garnet">
+<link rel="stylesheet" href="assets/css/theme-night.css" id="theme-css" data-default="night">
 ```
 
-**Garnet** (default) — the cathedral at vespers. Deep reds rather than literal desert
+**Night** (default) — the original: candlelit stone, gold leaf, glass glowing out of
+the dark.
+
+**Garnet** — the cathedral at vespers. Deep reds rather than literal desert
 colour: every surface is an oxblood or a garnet rather than a neutral, so nothing on
 the page reads as grey. Gold is pulled toward copper so it belongs to the reds around
 it. Shadows carry a red cast, so depth reads as recess in the same stone.
@@ -53,8 +56,6 @@ it. Shadows carry a red cast, so depth reads as recess in the same stone.
 **Sedona** — a sunlit cathedral. Desert sky at the top of the hero falling through warm
 sand to red rock at the floor; sandstone pages, clay contrast bands, bronze in place of
 gold leaf, juniper and turquoise among the voice accents.
-
-**Night** — the original: candlelit stone, gold leaf, glass glowing out of the dark.
 
 ### Switching while testing
 
