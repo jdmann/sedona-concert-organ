@@ -34,6 +34,12 @@
             0 30px 64px -28px rgba(var(--shadow-rgb), .7);
 
   --lift: -6px;
+
+  /* Shape — just enough to take the machined edge off, not enough to make
+     the cathedral look like a dashboard */
+  --radius-sm: 3px;    /* buttons, inputs                                   */
+  --radius:    5px;    /* cards, panels, grids                              */
+  --radius-lg: 8px;    /* the film frame and the contact dialog             */
 }
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
@@ -156,7 +162,17 @@ body::after {
 /* ── Buttons ──────────────────────────────────────────────────────────────── */
 .btn {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-sm);
   padding: .95rem 2.1rem;
+  /* The 1px transparent border made the gradient tile smaller than the
+     painted area, so it repeated and wrapped its bright first stop into a
+     pale line down the right edge. Sizing the tile to the border box and
+     forbidding the repeat removes it. */
+  background-origin: border-box;
+  background-repeat: no-repeat;
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .2em;
@@ -169,6 +185,11 @@ body::after {
 .btn--gild {
   color: var(--on-gild);
   background: linear-gradient(160deg, var(--gild-bright), var(--gild) 46%, var(--gild-deep));
+  /* These two must follow the shorthand, which resets them — otherwise the
+     gradient tile is sized to the padding box, repeats into the 1px border
+     strip, and wraps its bright first stop into a pale right edge. */
+  background-origin: border-box;
+  background-repeat: no-repeat;
   box-shadow: 0 0 0 rgba(var(--gild-rgb),0);
 }
 .btn--gild:hover {
@@ -1619,10 +1640,11 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
    that crosses the face once. Only .voice keeps a bespoke treatment, since it
    is a flat tile rather than a raised card.
    ═══════════════════════════════════════════════════════════════════════════ */
-.card, .cell, .xlink, .tier, .name-op, .plate, .level {
+.card, .cell, .xlink, .tier, .name-op, .plate {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  border-radius: var(--radius);
   box-shadow: var(--elev-1);
   transition: transform var(--dur-base) var(--e-exit),
               border-color var(--dur-base) var(--ease),
@@ -1631,7 +1653,7 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
 
 /* The sheen: a narrow diagonal band of gild, parked off the left edge */
 .card::after, .cell::after, .xlink::after,
-.tier::after, .name-op::after, .plate::after, .level::after {
+.tier::after, .name-op::after, .plate::after {
   content: "";
   position: absolute;
   inset: -1px;
@@ -1648,7 +1670,7 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
 
 @media (hover: hover) {
   .card:hover, .cell:hover, .xlink:hover,
-  .tier:hover, .name-op:hover, .plate:hover, .level:hover {
+  .tier:hover, .name-op:hover, .plate:hover {
     transform: translate3d(0, var(--lift), 0);
     border-color: rgba(var(--gild-rgb), .55);
     box-shadow: var(--elev-3);
@@ -1657,8 +1679,7 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
                 box-shadow var(--dur-base) var(--ease);
   }
   .card:hover::after, .cell:hover::after, .xlink:hover::after,
-  .tier:hover::after, .name-op:hover::after,
-  .plate:hover::after, .level:hover::after {
+  .tier:hover::after, .name-op:hover::after, .plate:hover::after {
     transform: translate3d(130%, 0, 0);
     opacity: 1;
     transition: transform var(--dur-slow) var(--ease),
@@ -1682,9 +1703,45 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
   transition-duration: var(--dur-fast);
 }
 
-/* Buttons pick up the same vocabulary */
-.btn { will-change: transform; }
-.btn--gild:hover, .btn--ghost:hover { transform: translate3d(0, -2px, 0); }
+/* Buttons carry the same vocabulary as the cards, at a smaller amplitude:
+   a shorter sprung lift, the same two-layer shadow, and the same sheen. */
+.btn {
+  will-change: transform;
+  transition: background var(--dur-base) var(--ease),
+              color var(--dur-base) var(--ease),
+              border-color var(--dur-base) var(--ease),
+              box-shadow var(--dur-base) var(--ease),
+              transform var(--dur-base) var(--e-exit);
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(104deg,
+    transparent 36%,
+    rgba(var(--light-rgb), .38) 47%,
+    rgba(var(--light-rgb), .12) 55%,
+    transparent 66%);
+  transform: translate3d(-130%, 0, 0);
+  opacity: 0;
+}
+@media (hover: hover) {
+  .btn:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: var(--elev-2);
+    transition-timing-function: var(--e-spring);
+  }
+  .btn:hover::after {
+    transform: translate3d(130%, 0, 0);
+    opacity: 1;
+    transition: transform var(--dur-slow) var(--ease),
+                opacity var(--dur-fast) linear;
+  }
+  /* The ghost button fills rather than glints, so its sheen stays quiet */
+  .btn--ghost:hover::after { opacity: .45; }
+}
 .btn:active { transform: translate3d(0, 0, 0); transition-duration: var(--dur-fast); }
 .btn:focus-visible { outline: 2px solid var(--gild); outline-offset: 3px; }
 
@@ -1695,8 +1752,25 @@ section[id], [id].section, .chronicle, .naming { scroll-margin-top: clamp(5rem, 
 /* Nothing sweeps or springs when motion is turned down */
 @media (prefers-reduced-motion: reduce) {
   .card::after, .cell::after, .xlink::after,
-  .tier::after, .name-op::after, .plate::after, .level::after { display: none; }
+  .tier::after, .name-op::after, .plate::after,
+  .btn::after { display: none; }
   .card:hover, .cell:hover, .xlink:hover,
-  .tier:hover, .name-op:hover, .plate:hover, .level:hover,
-  .xlink:focus-visible { transform: none; }
+  .tier:hover, .name-op:hover, .plate:hover,
+  .btn:hover, .xlink:focus-visible { transform: none; }
 }
+
+/* ── Shape, applied to the remaining framed components ─────────────────────
+   Grid containers that draw their dividers with a 1px gap need overflow
+   hidden as well, so the cells clip to the rounded corner. */
+.voices, .spec, .goal, .levels, .stops, .console__manuals {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.film, .modal { border-radius: var(--radius-lg); }
+.field input, .field select, .field textarea,
+.modal__close { border-radius: var(--radius-sm); }
+.plate__frame { border-radius: var(--radius) var(--radius) 0 0; }
+
+/* Rows in the donor ladder tint rather than lift — a list should not have
+   each of its rows jumping out of the stack. */
+.level { transition: background var(--dur-base) var(--ease); }

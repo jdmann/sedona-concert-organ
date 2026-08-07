@@ -88,9 +88,23 @@ which had drifted apart. The shared behaviour is:
   face once over `--dur-slow`. It is a `::after` on a `translate3d`, so it composites on
   the GPU and never triggers layout.
 
-Press states settle to `-2px`, keyboard focus gets the same lift as hover, and the
-whole set is guarded by `@media (hover: hover)` so touch devices don't get stuck in a
-hover state. Under `prefers-reduced-motion` the sheen is removed and the lift dropped.
+**Buttons** carry the same vocabulary at a smaller amplitude — a 3px sprung lift,
+`--elev-2`, and the same sheen, quieted on `.btn--ghost` since it fills rather than
+glints.
+
+Press states settle to `0`, keyboard focus gets the same lift as hover, and the whole
+set is guarded by `@media (hover: hover)` so touch devices don't get stuck in a hover
+state. Under `prefers-reduced-motion` the sheen is removed and the lift dropped.
+
+**Shape.** `--radius-sm` (3px) on buttons and inputs, `--radius` (5px) on cards and
+grids, `--radius-lg` (8px) on the film frame and contact dialog — enough to take the
+machined edge off without making the cathedral look like a dashboard. Grid containers
+that draw their dividers with a 1px gap also get `overflow: hidden`, so the cells clip
+to the rounded corner.
+
+`.level` rows are deliberately excluded from the lift: a list should not have each of
+its rows jumping out of the stack, so they tint instead. On `support.html` every donor
+level ships `open`.
 
 Motion and elevation are tokens (`--dur-fast/base/slow`, `--e-spring`, `--e-exit`,
 `--elev-1/2/3`) in `cathedral.css`; only the shadow *colour* comes from the theme.
